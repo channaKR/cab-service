@@ -1,0 +1,4 @@
+127.0.0.1 - - [19/Aug/2022:00:54:52 -0700] "GET /go-cheeta/customer-index.jsp HTTP/1.1" 200 1261
+127.0.0.1 - - [19/Aug/2022:00:54:52 -0700] "GET /go-cheeta/css/homepagenavbar.css HTTP/1.1" 304 -
+127.0.0.1 - - [19/Aug/2022:00:54:52 -0700] "GET /go-cheeta/css/home-page-style.css HTTP/1.1" 304 -
+127.0.0.1 - - [19/Aug/2022:00:54:52 -0700] "GET /go-cheeta/image/bg.jpg HTTP/1.1" 304 -

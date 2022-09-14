@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.wst.server.ui.launchConfigurationType">
+    <stringAttribute key="client-id" value="org.eclipse.wst.server.ui.web"/>
+    <stringAttribute key="launchable-adapter-id" value="org.eclipse.jst.server.tomcat.web"/>
+<<<<<<<< HEAD:.metadata/.plugins/org.eclipse.debug.core/.launches/_customer-index.jsp.launch
+    <stringAttribute key="module-artifact" value="org.eclipse.jst.j2ee.server:go-cheeta///customer-index.jsp"/>
+========
+    <stringAttribute key="module-artifact" value="org.eclipse.jst.j2ee.server:go-cheeta///driver-login.jsp"/>
+>>>>>>>> 915bacf5a6702528a9fb9bbe7ea4cfa5be77a23e:.metadata/.plugins/org.eclipse.debug.core/.launches/_driver-login.jsp.launch
+    <stringAttribute key="module-artifact-class" value="org.eclipse.wst.server.core.util.WebResource"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/go-cheeta"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="4"/>
+    </listAttribute>
+    <stringAttribute key="server-id" value="Tomcat v9.0 Server at localhost"/>
+</launchConfiguration>

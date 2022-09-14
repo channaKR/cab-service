@@ -1,0 +1,13 @@
+@charset "ISO-8859-1";
+.bg {
+     
+     background-position: center;
+     height: calc(100vh - 80px);
+     opacity: 0.5;
+}
+
+body{
+	
+	background-color:black;
+}
+

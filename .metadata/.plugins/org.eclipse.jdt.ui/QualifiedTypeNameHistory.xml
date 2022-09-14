@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.VehicleManager"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.Customer"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.AccountManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.CustomerService"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Customer"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Account"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.VehicleService"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Booking"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.BookingManager"/>
+    <fullyQualifiedTypeName name="org.javatuples.Pair"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Vehicle"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.DriverClass"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.DriversManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.User"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.DriverService"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="com.google.api.client.json.JsonFactory"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="com.google.api.client.googleapis.auth.oauth2.GoogleCredential"/>
+</qualifiedTypeNameHistroy>

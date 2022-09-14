@@ -1,0 +1,14 @@
+package com.go.cheeta.service;
+import java.util.Properties;
+import java.util.Random;
+
+
+public class EmailService {
+
+	
+
+
+	
+	
+	
+}

@@ -1,0 +1,9 @@
+127.0.0.1 - - [12/Sep/2022:21:07:55 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [12/Sep/2022:21:08:01 +0530] "GET /go-cheeta/WebController HTTP/1.1" 500 3921
+127.0.0.1 - - [12/Sep/2022:21:36:49 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/customer-index.jsp HTTP/1.1" 302 -
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/customer-login.jsp HTTP/1.1" 200 2015
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/css/account-style.css HTTP/1.1" 200 206
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/css/homepagenavbar.css HTTP/1.1" 200 1029
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/css/addmin-dashboard-side.css HTTP/1.1" 304 -
+127.0.0.1 - - [12/Sep/2022:21:36:50 +0530] "GET /go-cheeta/image/account-create.jpeg HTTP/1.1" 200 481483
