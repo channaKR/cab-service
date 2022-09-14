@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+body {
+     
+     background-position: center;
+     height: calc(100vh - 80px);
+	  background-repeat: no-repeat;
+}
+
+.cent{
+	 padding-top:50px;
+
+}
+
+.msg{
+	color:white;
+}

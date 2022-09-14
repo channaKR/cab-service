@@ -1,0 +1,64 @@
+package com.go.cheeta.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.go.cheeta.model.Booking;
+import com.go.cheeta.model.DriverClass;
+import com.go.cheeta.model.Vehicle;
+import com.go.cheeta.service.DriverService;
+import com.go.cheeta.service.VehicleService;
+
+public class DriverController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");
+		   if(action.equals("bookingorder")) {
+			   viewOrders(request,response);
+			   
+		   }
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	}
+
+	
+	
+	private void viewOrders(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String message= "";
+		DriverService service=new DriverService();
+		DriverClass driver=new DriverClass();
+		Booking booking=new Booking();
+		
+		try {
+			
+			driver.setNicnumber(request.getParameter("drivernic"));
+			List<Booking>bookingorders=service.viewOrdersDriver(booking, driver);
+			
+			if(bookingorders.isEmpty()) {
+				
+
+			}
+			request.setAttribute("orders",bookingorders);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-order.jsp");
+		rd.forward(request, response);
+	}
+	
+}

@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+body {
+     
+     background-position: center;
+     height: calc(100vh - 80px);
+	
+}
+
+.cent{ margin: auto;
+	 padding:100%;}

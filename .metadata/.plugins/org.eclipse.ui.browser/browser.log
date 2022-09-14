@@ -1,0 +1,229 @@
+
+Aug 13, 2022 10:04:09.856 NEW SESSION
+Aug 13, 2022 10:04:09.856 [4980:13368:0813/100409.854:ERROR:assistance_home_client.cc(23)] File path C:\Users\Potato\AppData\Local\Microsoft\Edge\User Data\Default
+Aug 13, 2022 10:04:10.304 [4980:13368:0813/100410.294:ERROR:edge_auth_errors.cc(415)] EDGE_IDENTITY: Get Default OS Account failed: Error: Primary Error: kImplicitSignInFailure, Secondary Error: kAccountProviderFetchError, Platform error: 0, Error string: 
+Aug 13, 2022 10:04:10.304 
+Aug 13, 2022 10:04:13.664 [4980:13368:0813/100413.664:ERROR:device_event_log_impl.cc(214)] [10:04:13.664] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Aug 13, 2022 10:05:10.309 [4980:9904:0813/100510.308:ERROR:util.cc(133)] Can't create base directory: C:\Program Files\Microsoft\EdgeUpdater
+Aug 13, 2022 10:07:09.986 [4980:13368:0813/100709.986:ERROR:fallback_task_provider.cc(124)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+Aug 13, 2022 10:07:10.29 [4980:13368:0813/100710.029:ERROR:fallback_task_provider.cc(124)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+Aug 13, 2022 10:07:11.241 [4980:13368:0813/100711.241:ERROR:smartscreen_dns_resolver.cc(103)] SmartScreenDnsResolver::OnComplete Error: -7 DidTimeOut: 1 URL: https://login.microsoftonline.com/common/oauth2/authorize?client_id=9ea1ad79-fdb6-4f9a-8bc3-2b70f96e34c7&response_type=id_token+code&nonce=d4b3c5cf-8328-4f46-9157-8e15e012e446&redirect_uri=https%3a%2f%2fwww.bing.com%2forgid%2fidtoken%2fconditional&scope=openid&response_mode=form_post&instance_aware=true&msafed=0&prompt=none&state=%7b%22ig%22%3a%223F64D9BE17954367A668A1E1468973A6%22%7d
+Aug 13, 2022 10:07:13.699 [4980:13368:0813/100713.699:ERROR:smartscreen_dns_resolver.cc(103)] SmartScreenDnsResolver::OnComplete Error: -7 DidTimeOut: 1 URL: https://web.whatsapp.com/
+Aug 13, 2022 10:22:15.952 [4980:13368:0813/102215.950:ERROR:fallback_task_provider.cc(124)] Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/739782.
+
+Aug 16, 2022 04:50:18.697 NEW SESSION
+Aug 16, 2022 04:50:18.697 [2022-08-16T11:50:18Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 04:50:18.796 [2022-08-16T11:50:18Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 04:50:35.348 [2022-08-16T11:50:35Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 04:50:35.351 [2022-08-16T11:50:35Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 05:02:32.562 [Parent 4312, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 05:03:34.81 [2022-08-16T12:03:34Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 05:03:34.108 [2022-08-16T12:03:34Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 05:06:03.815 [2022-08-16T12:06:03Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:06:03.816 [2022-08-16T12:06:03Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:06:03.817 [2022-08-16T12:06:03Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:06:03.884 [2022-08-16T12:06:03Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:30:49.396 [2022-08-16T12:30:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:30:49.397 [2022-08-16T12:30:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:30:49.398 [2022-08-16T12:30:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 05:30:49.403 [2022-08-16T12:30:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 10:03:27.516 [Parent 10124, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 10:05:30.635 [2022-08-16T17:05:30Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 10:05:30.672 [2022-08-16T17:05:30Z ERROR viaduct::backend::ffi] Missing HTTP status
+
+Aug 16, 2022 11:30:19.89 NEW SESSION
+Aug 16, 2022 11:30:19.89 [Parent 8648, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 12:00:35.134 [2022-08-16T19:00:35Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 12:00:35.179 [2022-08-16T19:00:35Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 16, 2022 12:00:35.249 [Parent 8648, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 12:00:35.249 [Parent 8648, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.227 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.228 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.229 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.230 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.248 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:33.249 [Parent 20392, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 16, 2022 13:03:42.879 [2022-08-16T20:03:42Z ERROR glean_core::metrics::ping] Invalid reason code startup for ping newtab
+
+Aug 16, 2022 20:59:09.385 NEW SESSION
+Aug 16, 2022 20:59:09.385 [2022-08-17T03:59:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 20:59:09.385 [2022-08-17T03:59:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 20:59:09.387 [2022-08-17T03:59:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 20:59:09.407 [2022-08-17T03:59:09Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 21:43:27.674 [2022-08-17T04:43:27Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 21:43:27.677 [2022-08-17T04:43:27Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 21:43:27.684 [2022-08-17T04:43:27Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 21:43:27.686 [2022-08-17T04:43:27Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:05:52.831 [2022-08-17T05:05:52Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:05:52.834 [2022-08-17T05:05:52Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:05:52.835 [2022-08-17T05:05:52Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:05:52.836 [2022-08-17T05:05:52Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:11:12.786 [2022-08-17T05:11:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:11:12.787 [2022-08-17T05:11:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:11:12.787 [2022-08-17T05:11:12Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:11:14.416 [2022-08-17T05:11:14Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 22:27:30.386 [Child 4432, MediaDecoderStateMachine #1] WARNING: 1b2655bc350 OpenCubeb() failed to init cubeb: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:281
+Aug 16, 2022 23:16:21.996 [2022-08-17T06:16:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 23:16:21.996 [2022-08-17T06:16:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 23:16:21.996 [2022-08-17T06:16:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 23:16:21.997 [2022-08-17T06:16:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 16, 2022 23:39:38.539 [Parent 13960, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 17, 2022 24:00:36.170 [2022-08-17T07:00:36Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 24:00:36.170 [2022-08-17T07:00:36Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 24:00:36.171 [2022-08-17T07:00:36Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 24:00:36.171 [2022-08-17T07:00:36Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 24:01:59.649 [Parent 14320, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 17, 2022 24:02:11.529 [2022-08-17T07:02:11Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:02:11.530 [2022-08-17T07:02:11Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:02:22.982 [2022-08-17T07:02:22Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:02:22.983 [2022-08-17T07:02:22Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:43:51.470 [2022-08-17T07:43:51Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:43:51.518 [2022-08-17T07:43:51Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 17, 2022 24:43:51.552 [Parent 14636, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 17, 2022 04:39:44.831 [2022-08-17T11:39:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:39:44.832 [2022-08-17T11:39:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:39:44.833 [2022-08-17T11:39:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:39:44.849 [2022-08-17T11:39:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:46:46.30 [2022-08-17T11:46:46Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:46:46.30 [2022-08-17T11:46:46Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:46:46.38 [2022-08-17T11:46:46Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:46:46.38 [2022-08-17T11:46:46Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:53:00.562 [2022-08-17T11:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:53:00.562 [2022-08-17T11:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:53:00.733 [2022-08-17T11:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:53:00.734 [2022-08-17T11:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:57:18.164 [2022-08-17T11:57:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:57:18.164 [2022-08-17T11:57:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:57:18.165 [2022-08-17T11:57:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 04:57:18.165 [2022-08-17T11:57:18Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:03:39.85 [2022-08-17T12:03:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:03:39.90 [2022-08-17T12:03:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:03:39.91 [2022-08-17T12:03:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:03:39.96 [2022-08-17T12:03:39Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:04:59.221 [2022-08-17T12:04:59Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:04:59.221 [2022-08-17T12:04:59Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:04:59.222 [2022-08-17T12:04:59Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:04:59.223 [2022-08-17T12:04:59Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:24:49.335 [2022-08-17T12:24:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:24:49.335 [2022-08-17T12:24:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:24:49.335 [2022-08-17T12:24:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:24:49.339 [2022-08-17T12:24:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:27:38.931 [2022-08-17T12:27:38Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:27:38.931 [2022-08-17T12:27:38Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:27:49.833 [2022-08-17T12:27:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 05:27:49.833 [2022-08-17T12:27:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:37:29.984 [2022-08-17T16:37:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:37:29.985 [2022-08-17T16:37:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:37:30.112 [2022-08-17T16:37:30Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:37:30.752 [2022-08-17T16:37:30Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:39:16.121 [2022-08-17T16:39:16Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:39:16.122 [2022-08-17T16:39:16Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:39:16.259 [2022-08-17T16:39:16Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 09:39:16.262 [2022-08-17T16:39:16Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 17, 2022 10:07:07.359 [Parent 18176, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Aug 17, 2022 10:07:07.375 [Parent 18176, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 17, 2022 10:07:07.387 [Parent 18176, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 17, 2022 10:07:07.606 [Parent 18176, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+Aug 21, 2022 12:03:21.736 NEW SESSION
+Aug 21, 2022 12:03:21.737 [2022-08-21T19:03:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 21, 2022 12:03:22.71 [2022-08-21T19:03:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 21, 2022 12:03:22.72 [2022-08-21T19:03:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 21, 2022 12:03:22.72 [2022-08-21T19:03:21Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+
+Aug 22, 2022 01:14:13.824 NEW SESSION
+Aug 22, 2022 01:14:13.824 [2022-08-21T19:44:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 01:14:13.825 [2022-08-21T19:44:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 01:14:13.838 [2022-08-21T19:44:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 01:14:13.839 [2022-08-21T19:44:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 10:23:00.834 [2022-08-22T04:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 10:23:01.171 [2022-08-22T04:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 10:23:01.172 [2022-08-22T04:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 10:23:01.172 [2022-08-22T04:53:00Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 11:36:31.620 [2022-08-22T06:06:31Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 11:36:31.625 [2022-08-22T06:06:31Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 11:36:31.626 [2022-08-22T06:06:31Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 11:36:31.653 [2022-08-22T06:06:31Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 12:33:13.668 [2022-08-22T07:03:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 12:33:13.668 [2022-08-22T07:03:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 12:33:13.694 [2022-08-22T07:03:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 12:33:13.694 [2022-08-22T07:03:13Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 13:01:55.869 [Parent 18460, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 22, 2022 13:01:55.870 [Parent 18460, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 22, 2022 13:04:20.247 [Parent 18460, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Aug 22, 2022 16:25:43.437 [2022-08-22T10:55:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 16:25:43.441 [2022-08-22T10:55:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 16:25:43.441 [2022-08-22T10:55:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 16:25:43.441 [2022-08-22T10:55:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 19:49:01.920 [Parent 26768, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:554
+Aug 22, 2022 20:03:24.692 [2022-08-22T14:33:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 20:03:24.699 [2022-08-22T14:33:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 20:03:24.706 [2022-08-22T14:33:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 22, 2022 20:03:25.624 [2022-08-22T14:33:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+
+Aug 26, 2022 22:18:25.146 NEW SESSION
+Aug 26, 2022 22:18:25.147 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.159 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.159 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.159 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.159 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.160 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.160 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:18:25.160 [2022-08-26T16:48:24Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:23:49.112 [2022-08-26T16:53:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:23:49.113 [2022-08-26T16:53:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:23:49.121 [2022-08-26T16:53:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 22:23:49.130 [2022-08-26T16:53:49Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:08:58.157 [2022-08-26T17:38:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:08:58.157 [2022-08-26T17:38:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:08:58.185 [2022-08-26T17:38:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:09:01.163 [2022-08-26T17:39:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:09:01.163 [2022-08-26T17:39:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:09:01.164 [2022-08-26T17:39:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:09:01.415 [2022-08-26T17:39:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:09:01.415 [2022-08-26T17:39:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:10:44.730 [2022-08-26T17:40:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:10:44.730 [2022-08-26T17:40:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:10:44.731 [2022-08-26T17:40:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:10:44.739 [2022-08-26T17:40:44Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:13:25.286 [2022-08-26T17:43:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:13:25.286 [2022-08-26T17:43:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:13:25.286 [2022-08-26T17:43:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:13:25.287 [2022-08-26T17:43:25Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:46:43.525 [2022-08-26T18:16:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:46:43.526 [2022-08-26T18:16:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:46:43.528 [2022-08-26T18:16:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 26, 2022 23:46:43.532 [2022-08-26T18:16:43Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 27, 2022 01:06:02.87 [Parent 30560, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Aug 27, 2022 01:20:07.213 [Parent 30560, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Aug 27, 2022 02:04:36.146 [Child 9092, MediaDecoderStateMachine #1] WARNING: Decoder=22a6f8b3400 state=DECODING_METADATA Decode metadata failed, shutting down decoder: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachine.cpp:370
+Aug 27, 2022 02:04:36.147 [Child 9092, MediaDecoderStateMachine #1] WARNING: Decoder=22a6f8b3400 Decode error: NS_ERROR_DOM_MEDIA_METADATA_ERR (0x806e0006) - static MP4Metadata::ResultAndByteBuffer __cdecl mozilla::MP4Metadata::Metadata(mozilla::ByteStream *): Cannot parse metadata: file /builds/worker/checkouts/gecko/dom/media/MediaDecoderStateMachineBase.cpp:151
+
+Aug 28, 2022 11:29:08.746 NEW SESSION
+Aug 28, 2022 11:29:08.746 [2022-08-28T05:59:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:08.750 [2022-08-28T05:59:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:08.753 [2022-08-28T05:59:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:08.754 [2022-08-28T05:59:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:58.99 [2022-08-28T05:59:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:58.100 [2022-08-28T05:59:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:58.101 [2022-08-28T05:59:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:29:58.101 [2022-08-28T05:59:58Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:32:01.421 [2022-08-28T06:02:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:32:01.433 [2022-08-28T06:02:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:32:01.436 [2022-08-28T06:02:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 11:32:01.437 [2022-08-28T06:02:01Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 15:01:57.759 [2022-08-28T09:31:57Z ERROR viaduct::backend::ffi] Missing HTTP status
+Aug 28, 2022 15:01:57.760 [2022-08-28T09:31:57Z ERROR viaduct::backend::ffi] Missing HTTP status
+
+Aug 28, 2022 17:15:50.364 NEW SESSION
+Aug 28, 2022 17:15:50.364 [2022-08-28T11:45:50Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 17:15:51.683 [2022-08-28T11:45:51Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 17:15:51.683 [2022-08-28T11:45:51Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Aug 28, 2022 17:15:51.684 [2022-08-28T11:45:51Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+
+Sept 11, 2022 02:13:49.716 NEW SESSION
+Sept 11, 2022 02:13:49.717 [Parent 5792, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Sept 11, 2022 02:16:24.777 [Parent 5792, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 11, 2022 02:26:27.676 [Parent 3188, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 11, 2022 02:26:27.676 [Parent 3188, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 11, 2022 11:44:44.484 [Parent 4844, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167

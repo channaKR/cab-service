@@ -1,0 +1,33 @@
+package com.go.cheeta.service;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.go.cheeta.dao.BookingManager;
+import com.go.cheeta.dao.DriversManager;
+import com.go.cheeta.model.Account;
+import com.go.cheeta.model.Booking;
+import com.go.cheeta.model.DriverClass;
+import com.go.cheeta.model.Vehicle;
+
+public class DriverService implements User {
+
+	@Override
+	public boolean login() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+	public boolean addDriver(Vehicle vehicle,DriverClass driver,Account account) throws ClassNotFoundException, SQLException {
+		
+		return DriversManager.addDriver(vehicle, driver, account);
+		
+	}
+	
+	public List<Booking> viewOrdersDriver(Booking booking,DriverClass driver) throws ClassNotFoundException, SQLException{
+		return BookingManager.viewOrdersDriver(booking, driver);
+		
+		
+	}
+}

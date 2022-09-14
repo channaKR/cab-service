@@ -1,0 +1,10 @@
+127.0.0.1 - - [21/Aug/2022:23:51:12 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [21/Aug/2022:23:51:15 +0530] "GET /go-cheeta/add-vehicle.jsp HTTP/1.1" 200 6579
+127.0.0.1 - - [21/Aug/2022:23:51:15 +0530] "GET /go-cheeta/css/addmin-dashboard-side.css HTTP/1.1" 200 1836
+127.0.0.1 - - [21/Aug/2022:23:58:49 +0530] "GET / HTTP/1.1" 404 751
+127.0.0.1 - - [21/Aug/2022:23:58:52 +0530] "GET /go-cheeta/add-vehicle.jsp HTTP/1.1" 200 6581
+127.0.0.1 - - [21/Aug/2022:23:58:52 +0530] "GET /go-cheeta/css/addmin-dashboard-side.css HTTP/1.1" 200 1836
+127.0.0.1 - - [21/Aug/2022:23:58:52 +0530] "GET /favicon.ico HTTP/1.1" 404 762
+127.0.0.1 - - [21/Aug/2022:23:59:24 +0530] "POST /go-cheeta/addVehicle HTTP/1.1" 200 6581
+127.0.0.1 - - [21/Aug/2022:23:59:27 +0530] "GET /go-cheeta/viewVehicle?action=all HTTP/1.1" 200 16662
+127.0.0.1 - - [21/Aug/2022:23:59:32 +0530] "POST /go-cheeta/editVehicle HTTP/1.1" 500 4037
