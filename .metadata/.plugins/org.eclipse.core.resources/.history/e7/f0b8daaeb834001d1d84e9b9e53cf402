@@ -1,0 +1,10 @@
+package com.go.cheeta.service;
+
+public class Sales {
+
+	private int orderid;
+	private int customerid;
+	private double paymentcoast;
+	private int vehicleid;
+	
+}

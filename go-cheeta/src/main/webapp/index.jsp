@@ -19,10 +19,10 @@
 </head>
 <body>
 
-<jsp:include page="home-page-navbar.jsp" />
-
+<jsp:include page="home-page-navbar.jsp"/>
 <div class="bg"></div>
-<div></div>
+
+
 </body>
 
 </html>
