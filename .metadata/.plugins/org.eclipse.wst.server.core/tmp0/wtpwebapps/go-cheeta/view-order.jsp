@@ -57,7 +57,7 @@ if((String) session.getAttribute("user")==null){
                            </thead>
                             <tbody>  
                               <tag:forEach var="order" items="${orders}">
-
+								
                                 <tr>
                                     <td>${ order.getBooking_ID()}</td>
                                     <td>${ order.getStart_Date()}</td>
@@ -74,7 +74,15 @@ if((String) session.getAttribute("user")==null){
                                    </tag:if>
                                    <tag:if test="${order.isConfirm()==1}">
                                     
-                                            <td><form action="" method="post"> <button class="cofrm btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i>
+                                           <td><form action="insertData" method="post">
+                                           <input type="hidden"  name="customerid" value="${order.getCustomerid()}">
+                                           <input type="hidden"  name="cost" value="${order.getCostfor_vehicle()}">
+                                           <input type="hidden"  name="vehicleid" value="${order.getVehicle_ID()}">
+                                           <input type="hidden"  name="branch" value="${order.getBaranch()}">
+                                           <input type="hidden"  name="bookingid" value="${ order.getBooking_ID()}">
+                                            <input type="hidden" name="action" value="confirmpayment">
+                                            
+                                             <button class="cofrm btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i>
                                              Pay</button></form>
                                        <button class="cancel btn btn-danger">Cancel</button></td>
                                    </tag:if>
@@ -93,5 +101,9 @@ if((String) session.getAttribute("user")==null){
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="javascript/script-dashboard.js"></script>
+
+<tag:forEach var="saleData" items="${sale}">
+ <h1>${sale.getBranch()}</h1>
+ </tag:forEach>
 </body>
 </html>

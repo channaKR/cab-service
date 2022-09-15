@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.jni.Time;
+
 import com.go.cheeta.model.Account;
 import com.go.cheeta.model.Booking;
 import com.go.cheeta.model.Customer;
@@ -20,7 +22,10 @@ import com.go.cheeta.model.Sales;
 import com.go.cheeta.model.Vehicle;
 import com.go.cheeta.service.CustomerService;
 import com.go.cheeta.service.DriverService;
+import com.go.cheeta.service.SaleService;
 import com.go.cheeta.service.VehicleService;
+import java.time.LocalDateTime;  
+import java.time.format.DateTimeFormatter; 
 
 public class DriverController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -43,6 +48,10 @@ public class DriverController extends HttpServlet {
 		   
 		   else if(action.equals("cofirm")) {
 			   confirmBooking(request,response);
+		   }
+		   else if (action.equals("confirmpayment")) {
+			   
+			   addSale(request,response);
 		   }
 	}
 
@@ -111,14 +120,14 @@ public class DriverController extends HttpServlet {
 		String message= "";
 		DriverService service=new DriverService();
 		Booking booking = new Booking();
-		Sales sale=new Sales();
+		
 		booking.setBooking_ID(Integer.parseInt(request.getParameter("bookingid")));
 		booking.setConfirm(1);
 		try {
 			boolean result=service.confirmBooking(booking);
 			if(result) {
 				message="Order confirm";
-				addSale(sale);
+				
 			}
 			
 			
@@ -132,9 +141,38 @@ public class DriverController extends HttpServlet {
 		
 	}
 	
-	private void addSale(Sales sale) {
+	private void addSale(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		SaleService service=new SaleService();
+		Sales sale=new Sales();
+		Booking book=new Booking();
+		book.setBooking_ID(Integer.parseInt(request.getParameter("bookingid")));
+		sale.setCustomerid(Integer.parseInt(request.getParameter("customerid"))  );
+		sale.setVehicleRegisterNumber(Integer.parseInt(request.getParameter("vehicleid")));
+		sale.setBranch(request.getParameter("branch"));
+		sale.setPaymentcoast(Double.parseDouble(request.getParameter("cost")));
+		sale.setDate(java.time.LocalDate.now());
+		try {
+			boolean result=service.addSales(sale);
+			if(result) {
+				message="Payment Sucess";
+				deleteBooking(book);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
 		
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("driver-dashboard.jsp");
+		rd.forward(request, response);
 		
+	}
+	
+	public void deleteBooking(Booking booking) throws ClassNotFoundException, SQLException {
+		String message= "";
+		SaleService service=new SaleService();
+		service.delteBooking(booking);
 		
 	}
 	

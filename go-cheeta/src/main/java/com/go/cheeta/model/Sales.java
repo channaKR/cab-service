@@ -7,7 +7,7 @@ public class Sales {
 	private int orderid;
 	private int customerid;
 	private double paymentcoast;
-	private String vehicleRegisterNumber;
+	private int vehicleRegisterNumber;
 	private String branch;
 	private LocalDate Date;
 	
@@ -16,7 +16,7 @@ public class Sales {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sales(int orderid, int customerid, double paymentcoast, String vehicleRegisterNumber, String branch,
+	public Sales(int orderid, int customerid, double paymentcoast, int vehicleRegisterNumber, String branch,
 			LocalDate date) {
 		super();
 		this.orderid = orderid;
@@ -51,11 +51,11 @@ public class Sales {
 		this.paymentcoast = paymentcoast;
 	}
 
-	public String getVehicleRegisterNumber() {
+	public int getVehicleRegisterNumber() {
 		return vehicleRegisterNumber;
 	}
 
-	public void setVehicleRegisterNumber(String vehicleRegisterNumber) {
+	public void setVehicleRegisterNumber(int vehicleRegisterNumber) {
 		this.vehicleRegisterNumber = vehicleRegisterNumber;
 	}
 

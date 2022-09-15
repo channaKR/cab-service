@@ -39,7 +39,7 @@ public class BookingManager {
 		DbConnector connector =new DbConnectorSQL();
 		Connection connection = connector.getConnection();
 		
-		String query="SELECT booking.bookingid,booking.startdate,booking.enddate,booking.location,booking.confirm,"+
+		String query="SELECT booking.customerid,booking.bookingid,booking.startdate,booking.enddate,booking.location,booking.confirm,booking.vid,"+
 		"branch,km,fullcost FROM booking LEFT JOIN driver ON"+
 				" booking.vid=driver.vid where drivernic=?";
 		PreparedStatement ps=connection.prepareStatement(query);
@@ -52,6 +52,7 @@ public class BookingManager {
 			String endDate=rs.getString("enddate");
 			LocalDate start_DateLocalDate = LocalDate.parse (startDate);
 			LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
+			bookingData.setCustomerid(rs.getInt("customerid"));
 	    	bookingData.setBooking_ID(rs.getInt("bookingid"));
 	    	bookingData.setStart_Date(start_DateLocalDate);
 	    	bookingData.setEnd_Date(endt_DateLocalDate);
@@ -60,6 +61,7 @@ public class BookingManager {
 	    	bookingData.setKillometers(rs.getDouble("km"));
 	    	bookingData.setCostfor_vehicle(rs.getDouble("fullcost"));
 	    	bookingData.setConfirm(rs.getInt("confirm"));
+	    	bookingData.setVehicle_ID(rs.getInt("vid"));
 	    	vehiclebook.add(bookingData);
 	    }
 	   
@@ -83,5 +85,21 @@ public class BookingManager {
 		
 	}	
 	
+	
+	public static boolean deleteBooking(Booking booking) throws ClassNotFoundException, SQLException {
+		DbConnector connector =new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		
+		String query = "DELETE FROM booking WHERE bookingid=?";
+		PreparedStatement ps = connection.prepareStatement(query);
+		ps.setInt(1, booking.getBooking_ID());
+		
+		boolean result = ps.executeUpdate() > 0 ;
+		ps.close();
+		connection.close();
+		return result;
+		
+		
+	}
 	
 }

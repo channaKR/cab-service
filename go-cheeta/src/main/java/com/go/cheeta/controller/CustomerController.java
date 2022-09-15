@@ -138,12 +138,13 @@ public class CustomerController extends HttpServlet {
 		booking.setEnd_Date(endt_DateLocalDate);
 		vehicle.setVehicleID(Integer.parseInt(request.getParameter("ID")));
 		customer.setCustomer_ID(Integer.parseInt(request.getParameter("customid")));
+		booking.setKillometers(Double.parseDouble(request.getParameter("km")));
 		double costperkm=Double.parseDouble(request.getParameter("costkm"));
 		double km=Double.parseDouble(request.getParameter("km"));
 		booking.setCostfor_vehicle(costperkm*km);
 		booking.setLocation(request.getParameter("location"));
 		booking.setBaranch(request.getParameter("branch"));
-		booking.setKillometers(Double.parseDouble(request.getParameter("km")));
+		
 		try {
 		boolean result=	service.bookVehicle(booking, vehicle, customer, driverClass);
 		if(result) {

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/addmin-dashboard-side.css" />
 </head>
 <body>
+<h1>${message}</h1>
 <%
 
 if((String) session.getAttribute("user")==null){

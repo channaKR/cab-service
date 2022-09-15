@@ -10,14 +10,10 @@
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.VehicleService"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-    <fullyQualifiedTypeName name="com.go.cheeta.model.Booking"/>
-    <fullyQualifiedTypeName name="com.go.cheeta.dao.BookingManager"/>
     <fullyQualifiedTypeName name="org.javatuples.Pair"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.Vehicle"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.DriverClass"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.DriversManager"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.User"/>
@@ -29,4 +25,14 @@
     <fullyQualifiedTypeName name="com.google.api.client.googleapis.auth.oauth2.GoogleCredential"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.Account"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.AccountManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.Sales"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.SaleManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Sales"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.SaleService"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.jni.Time"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.BookingManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Booking"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

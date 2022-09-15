@@ -136,9 +136,9 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
            <input type="number" class="form-group km" placeholder="KM" min="5" name="km"  required/>
     
  </div><br><input type="hidden" name="action" value="bookingvehicle">
- <input type="hidden" name="ID" value="<%= session.getAttribute("ID") %>">
-  <input type="hidden" name="customid" value="<%= session.getAttribute("customerid") %>">
- <input type="hidden" name="costkm" value="<%= session.getAttribute("cost") %>">
+ <input type="text" name="ID" value="<%= session.getAttribute("ID") %>">
+  <input type="text" name="customid" value="<%= session.getAttribute("customerid") %>">
+ <input type="text" name="costkm" value="<%= session.getAttribute("cost") %>">
  <div class="d-flex justify-content-center">
  
  <div class="row-button">

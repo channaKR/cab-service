@@ -227,3 +227,35 @@ Sept 11, 2022 02:16:24.777 [Parent 5792, IPC I/O Parent] WARNING: file /builds/w
 Sept 11, 2022 02:26:27.676 [Parent 3188, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 Sept 11, 2022 02:26:27.676 [Parent 3188, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 Sept 11, 2022 11:44:44.484 [Parent 4844, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+Sept 15, 2022 13:42:36.383 NEW SESSION
+Sept 15, 2022 13:42:36.383 [Parent 5456, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Sept 15, 2022 14:06:29.575 [2022-09-15T08:36:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 14:06:29.576 [2022-09-15T08:36:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 14:06:29.576 [2022-09-15T08:36:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 14:06:29.579 [2022-09-15T08:36:29Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 14:46:54.199 [Parent 5456, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:723
+Sept 15, 2022 15:34:06.719 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.724 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.728 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.759 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.813 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.827 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.831 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:06.834 [Parent 5456, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 15:34:07.646 [Parent 5456, IPC I/O Parent] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:554
+Sept 15, 2022 18:01:41.108 [2022-09-15T12:31:41Z ERROR viaduct::backend::ffi] Missing HTTP status
+Sept 15, 2022 18:05:47.159 [Parent 10132, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 18:05:47.159 [Parent 10132, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+Sept 15, 2022 22:52:40.922 NEW SESSION
+Sept 15, 2022 22:52:40.922 [2022-09-15T17:22:40Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:52:40.934 [2022-09-15T17:22:40Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:52:40.934 [2022-09-15T17:22:40Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:52:40.934 [2022-09-15T17:22:40Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:56:08.676 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:56:08.693 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:56:08.694 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 22:56:08.699 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
+Sept 15, 2022 23:36:55.426 [Parent 4060, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+Sept 15, 2022 23:36:55.436 [Parent 4060, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167

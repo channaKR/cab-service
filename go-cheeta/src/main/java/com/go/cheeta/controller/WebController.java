@@ -30,7 +30,11 @@ public class WebController extends HttpServlet {
 			   getVehiclesWithoutDrivers(request,response);
 		   }
 		   
-		   
+		   else if(action.equals("viewallsale")) {
+			   
+			   getSales(request,response);
+			   //getTotal(request,response);
+		   }
 	
 	}
 
@@ -60,7 +64,7 @@ public class WebController extends HttpServlet {
 		}
 		
 		else if(action.equals("sendto")) {
-			send(request, response);
+			//send(request, response);
 		}
 	}
 	
@@ -250,11 +254,51 @@ public class WebController extends HttpServlet {
 		
 	}
 	
-	public void send(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void getSales(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		SaleService service=new SaleService();
 		
+		//Booking bookin=new Booking();
+		
+		try {
+			List<Sales>sale=service.searchByBranch();
+			
+		
+			if(sale.isEmpty()) {
+				
+				message="Sorry No sales";
+			}
+			request.setAttribute("saleData",sale);
+			getTotal(request, response);
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		rd.forward(request, response);
+	}
 	
+	private void getTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		SaleService service=new SaleService();
+		try {
+			Sales sale=service.allCoast();
+			request.setAttribute("tot",sale);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		rd.forward(request, response);
 		
 	}
+
+		
 	
 }
 

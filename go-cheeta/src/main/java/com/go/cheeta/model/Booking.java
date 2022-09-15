@@ -6,6 +6,7 @@ import java.util.Date;
 public class Booking {
 
 	private int booking_ID;
+	private int customerid;
 	private LocalDate start_Date;
 	private LocalDate end_Date;
 	private String baranch;
@@ -22,10 +23,14 @@ public class Booking {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Booking(int booking_ID, LocalDate start_Date, LocalDate end_Date, String baranch, String location,
-			double killometers, int vehicle_ID, int driver_ID, String booking_Result) {
+
+	
+	public Booking(int booking_ID, int customerid, LocalDate start_Date, LocalDate end_Date, String baranch,
+			String location, double killometers, int vehicle_ID, int driver_ID, String booking_Result,
+			String vehiclemodel, double costfor_vehicle, int confirm) {
 		super();
 		this.booking_ID = booking_ID;
+		this.customerid = customerid;
 		this.start_Date = start_Date;
 		this.end_Date = end_Date;
 		this.baranch = baranch;
@@ -34,7 +39,22 @@ public class Booking {
 		this.vehicle_ID = vehicle_ID;
 		this.driver_ID = driver_ID;
 		this.booking_Result = booking_Result;
+		this.vehiclemodel = vehiclemodel;
+		this.costfor_vehicle = costfor_vehicle;
+		this.confirm = confirm;
 	}
+
+
+	public int getCustomerid() {
+		return customerid;
+	}
+
+
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
+	}
+
+
 	public int getBooking_ID() {
 		return booking_ID;
 	}
