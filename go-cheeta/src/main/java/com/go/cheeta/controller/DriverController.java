@@ -16,6 +16,7 @@ import com.go.cheeta.model.Account;
 import com.go.cheeta.model.Booking;
 import com.go.cheeta.model.Customer;
 import com.go.cheeta.model.DriverClass;
+import com.go.cheeta.model.Sales;
 import com.go.cheeta.model.Vehicle;
 import com.go.cheeta.service.CustomerService;
 import com.go.cheeta.service.DriverService;
@@ -110,11 +111,16 @@ public class DriverController extends HttpServlet {
 		String message= "";
 		DriverService service=new DriverService();
 		Booking booking = new Booking();
+		Sales sale=new Sales();
 		booking.setBooking_ID(Integer.parseInt(request.getParameter("bookingid")));
 		booking.setConfirm(1);
 		try {
-			service.confirmBooking(booking);
-			message="Order confirm";
+			boolean result=service.confirmBooking(booking);
+			if(result) {
+				message="Order confirm";
+				addSale(sale);
+			}
+			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -123,6 +129,12 @@ public class DriverController extends HttpServlet {
 		request.setAttribute("message", message);
 		RequestDispatcher rd=request.getRequestDispatcher("driver-dashboard.jsp");
 		rd.forward(request, response);
+		
+	}
+	
+	private void addSale(Sales sale) {
+		
+		
 		
 	}
 	

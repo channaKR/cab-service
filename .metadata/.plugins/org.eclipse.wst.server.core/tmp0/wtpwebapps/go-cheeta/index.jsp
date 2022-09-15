@@ -15,14 +15,14 @@
    
 </style>
 
-<title>Index</title>
+<title>web</title>
 </head>
 <body>
 
-<jsp:include page="home-page-navbar.jsp" />
-
+<jsp:include page="home-page-navbar.jsp"/>
 <div class="bg"></div>
-<div></div>
+
+
 </body>
 
 </html>
