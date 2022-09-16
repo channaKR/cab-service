@@ -3397,3 +3397,115 @@ java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5
 
 !ENTRY org.eclipse.jst.server.tomcat.core 4 0 2022-09-16 03:04:42.461
 !MESSAGE Port 8080 required by Tomcat v9.0 Server at localhost is already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:34.025
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:34.031
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2022-09-16 18:47:35.670
+!MESSAGE An error occurred trying to find javax.faces.webapp.FacesServlet :
+!STACK 0
+java.net.UnknownHostException: java.sun.com
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:567)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/java.net.Socket.connect(Socket.java:583)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:183)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:532)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:637)
+	at java.base/sun.net.www.http.HttpClient.<init>(HttpClient.java:280)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:385)
+	at java.base/sun.net.www.http.HttpClient.New(HttpClient.java:407)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1309)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:1057)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(XMLEntityManager.java:677)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.startEntity(XMLEntityManager.java:1397)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLEntityManager.startDTDEntity(XMLEntityManager.java:1363)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDTDScannerImpl.setInputSource(XMLDTDScannerImpl.java:257)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver.dispatch(XMLDocumentScannerImpl.java:1152)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$DTDDriver.next(XMLDocumentScannerImpl.java:1040)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:943)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:247)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at java.xml/javax.xml.parsers.DocumentBuilder.parse(DocumentBuilder.java:122)
+	at org.eclipse.m2e.wtp.jsf.internal.utils.JSFUtils.hasFacesServlet(JSFUtils.java:141)
+	at org.eclipse.m2e.wtp.jsf.internal.utils.JSFUtils.hasFacesServlet(JSFUtils.java:117)
+	at org.eclipse.m2e.wtp.jsf.internal.configurators.WebXmlJSFFacetDetector.hasFacesServletInWebXml(WebXmlJSFFacetDetector.java:82)
+	at org.eclipse.m2e.wtp.jsf.internal.configurators.WebXmlJSFFacetDetector.findFacetVersion(WebXmlJSFFacetDetector.java:57)
+	at org.eclipse.m2e.wtp.facets.FacetDetectorManager.findFacetVersion(FacetDetectorManager.java:93)
+	at org.eclipse.m2e.wtp.facets.FacetDetectorManager.findFacetVersion(FacetDetectorManager.java:63)
+	at org.eclipse.m2e.wtp.jsf.internal.configurators.JSFProjectConfigurator.configureInternal(JSFProjectConfigurator.java:95)
+	at org.eclipse.m2e.wtp.jsf.internal.configurators.JSFProjectConfigurator.configure(JSFProjectConfigurator.java:70)
+	at org.eclipse.m2e.core.project.configurator.AbstractLifecycleMapping.configure(AbstractLifecycleMapping.java:124)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$2(ProjectConfigurationManager.java:515)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:509)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration0(ProjectConfigurationManager.java:447)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.lambda$1(ProjectConfigurationManager.java:362)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1411)
+	at org.eclipse.m2e.core.internal.project.ProjectConfigurationManager.updateProjectConfiguration(ProjectConfigurationManager.java:361)
+	at org.eclipse.m2e.core.ui.internal.UpdateMavenProjectJob.runInWorkspace(UpdateMavenProjectJob.java:80)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:43)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:35.683
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:35.687
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:38.764
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 18:47:38.769
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:06.242
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:06.249
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:07.523
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:07.528
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:08.858
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:40:08.864
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:13.753
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:13.759
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:15.032
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:15.037
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:16.108
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-16 19:54:16.112
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.

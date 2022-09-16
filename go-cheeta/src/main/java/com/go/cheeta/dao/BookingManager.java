@@ -101,5 +101,41 @@ public class BookingManager {
 		
 		
 	}
+	public static List<Booking> getAllBooking() throws ClassNotFoundException, SQLException{
+		
+		DbConnector connector =new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		String query = "SELECT * FROM gocheeta.booking";
+		PreparedStatement ps=connection.prepareStatement(query);
+		 ResultSet rs=ps.executeQuery();
+		List<Booking>bookingdata=new ArrayList();
+		while(rs.next()) {
+			
+			Booking bookingData=new Booking();
+    		String startDate=rs.getString("startdate");
+		String endDate=rs.getString("enddate");
+		LocalDate start_DateLocalDate = LocalDate.parse (startDate);
+		LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
+		bookingData.setCustomerid(rs.getInt("customerid"));
+    		bookingData.setBooking_ID(rs.getInt("bookingid"));
+    		bookingData.setStart_Date(start_DateLocalDate);
+    		bookingData.setEnd_Date(endt_DateLocalDate);
+    		bookingData.setLocation(rs.getString("location"));
+    		bookingData.setBaranch(rs.getString("branch"));
+    		bookingData.setKillometers(rs.getDouble("km"));
+    		bookingData.setCostfor_vehicle(rs.getDouble("fullcost"));
+    		bookingData.setConfirm(rs.getInt("confirm"));
+    		bookingData.setVehicle_ID(rs.getInt("vid"));
+    		bookingdata.add(bookingData);
+			
+		};
+		ps.close();
+		connection.close();
+		
+		return bookingdata;
+		
+		
+		
+	}
 	
 }

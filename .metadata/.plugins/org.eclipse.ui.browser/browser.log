@@ -271,3 +271,10 @@ Sept 16, 2022 03:06:54.969 [8832:8796:0916/030654.968:ERROR:device_event_log_imp
 Sept 16, 2022 03:07:48.370 [8832:11488:0916/030748.369:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 Sept 16, 2022 03:52:52.72 [8832:8796:0916/035252.071:ERROR:device_event_log_impl.cc(214)] [03:52:52.072] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
 Sept 16, 2022 08:07:48.375 [8832:11488:0916/080748.373:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+Sept 16, 2022 13:07:48.377 [8832:3696:0916/130748.377:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+Sept 16, 2022 13:50:09.399 [8832:5964:0916/135009.398:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Sept 16, 2022 13:50:33.860 [8832:5964:0916/135033.859:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Sept 16, 2022 13:51:27.739 [8832:5964:0916/135127.738:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Sept 16, 2022 13:53:23.354 [8832:5964:0916/135323.353:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Sept 16, 2022 13:56:06.497 [8832:5964:0916/135606.497:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106
+Sept 16, 2022 14:03:30.470 [8832:5964:0916/140330.470:ERROR:connection_factory_impl.cc(425)] Failed to connect to MCS endpoint with error -106

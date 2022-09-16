@@ -16,7 +16,7 @@
  <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i class="fas fa-car"></i> Go Cheeta </div>
             <div class="list-group list-group-flush my-3">
-                <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                <a href="/go-cheeta/salesData?action=viewallsale" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i> Admin Dashboard</a>
                
                <a href="add-vehicle.jsp" class="list-group-item list-group-item-action bg-transparent second-text active">
@@ -24,8 +24,9 @@
                  <a href="/go-cheeta/viewVehicle?action=all" class="list-group-item list-group-item-action bg-transparent second-text active">
                <i class="bi bi-laptop-fill"></i>  View Vehicles</a>
                  <a href="/go-cheeta/loadVehicle?action=withoutDriver" class="list-group-item list-group-item-action bg-transparent second-text active">
-               <i class="bi bi-laptop-fill"></i>Driver Data</a>
-               
+               <i class="fas fa-shipping-fast"></i> Add Driver Data</a>
+               <a href="/go-cheeta/salesData?action=viewOrders" class="list-group-item list-group-item-action bg-transparent second-text active">
+               <i class="fas fa-atom"></i> View Booking</a>
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
             </div>

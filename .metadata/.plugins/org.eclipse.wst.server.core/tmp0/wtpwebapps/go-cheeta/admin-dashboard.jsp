@@ -46,7 +46,7 @@ display: flex;
  <div class="d-flex justify-content-center">
 </div>
 <h3 style="font-weight:bold">Branch Sales Details</h3>
-<table class="tsize">
+<table class="tsize" id="tb1">
 <thead>
 <tr>
 <th>Branch Name</th>
@@ -92,12 +92,12 @@ display: flex;
  </tbody>
 
 
-</table><br>
+</table ><br>
 <form action="salesData" method="GET">
 <div class="search">
 <input type="hidden" name="action" value="branchtot">
-<input type="date"  class=" txt form-control addvehicle-input" name="date"  required>
- <select class="form-select form-group" aria-label="Default select example" name="branch" required>
+<input type="date"  class=" txt form-control addvehicle-input" name="date" id="date" required>
+ <select class="form-select form-group" aria-label="Default select example" name="branch" id="branch" required>
    
   <option VALUE=""><b>Select Branch</b></option>
   <option value="galle">Galle</option>
@@ -107,29 +107,39 @@ display: flex;
   <option value="kurunegala">Kurunegala</option>
     <option value="jaffna">Jaffna</option>
     </select>
-<button type="submit" class="searchbtn btn btn-light" >Search</button> 
+<button type="submit" class="searchbtn btn btn-light" onclick="hideButton()" >Search</button> 
 </div>
  </form><br>
- <tag:forEach var="searchtotal" items="${branchsearch}">
+
 <table class="tsize">
 <thead>
+ 
 <tr>
+<tag:forEach var="searchtotal" items="${branchsearch}">
+
 <th>Total</th>
 <th>${searchtotal.getPaymentcoast()}</th>
-
+</tag:forEach>
 </tr>
 
 </thead>
 </table>
 
-</tag:forEach>
+
 </div>
 </div>
  </div>
 
 <div>${message}</div>
+<script type="text/javascript">
+function hideButton()
+{
+	
+	tb1.style.display = 'none';
+}
 
 
+</script>
 
 <script src="javascript/script-dashboard.js"></script>
 

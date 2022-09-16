@@ -2,21 +2,28 @@ package com.go.cheeta.model;
 
 public class DriverClass {
    
-	private int driverid;
+	private int vehicleID;
 	private String drivername;
 	private String contactnumber;
 	private String nicnumber;
 	private String address;
 	private String email;
 	public int getDriverid() {
-		return driverid;
+		return vehicleID;
 	}
-	public void setDriverid(int driverid) {
-		this.driverid = driverid;
+	
+	public int getVehicleID() {
+		return vehicleID;
 	}
+
+	public void setVehicleID(int vehicleID) {
+		this.vehicleID = vehicleID;
+	}
+
 	public String getDrivername() {
 		return drivername;
 	}
+
 	public void setDrivername(String drivername) {
 		this.drivername = drivername;
 	}

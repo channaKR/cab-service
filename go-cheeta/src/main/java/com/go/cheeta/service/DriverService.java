@@ -1,5 +1,6 @@
 package com.go.cheeta.service;
 
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -41,4 +42,11 @@ public class DriverService implements User {
 		 return BookingManager.updateBooking(booking);
 		 
 	 }
+	 
+	public List<DriverClass>getAllDriversData() throws ClassNotFoundException, SQLException{
+		return DriversManager.driverData();
+		
+		
+		
+	}
 }

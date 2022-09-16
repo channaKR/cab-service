@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 
 import com.go.cheeta.model.*;
 import com.go.cheeta.service.*;
-import com.go.cheeta.service.VehicleService;
 
 public class WebController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -41,7 +40,14 @@ public class WebController extends HttpServlet {
 			   searchTotal(request,response);
 			   
 			}
-	
+		   else if(action.equals("viewOrders")) {
+			   
+			   viewOrders(request, response);
+		   }
+		   else if(action.equals("alldrivers")) {
+			   
+			   getAllDriver(request, response);
+		   }
 	}
 
 	
@@ -273,7 +279,7 @@ public class WebController extends HttpServlet {
 				message="Sorry No sales";
 			}
 			request.setAttribute("saleData",sale);
-			getTotal(request, response);
+			
 			
 			
 		} catch (ClassNotFoundException | SQLException e) {
@@ -281,13 +287,17 @@ public class WebController extends HttpServlet {
 			message=e.getMessage();
 		}
 		request.setAttribute("message",message);
+		getTotal(request, response);
 		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		
 		rd.forward(request, response);
+		
 	}
 	
 	private void getTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message= "";
 		SaleService service=new SaleService();
+		
 		try {
 			Sales sale=service.allCoast();
 			request.setAttribute("tot",sale);
@@ -298,6 +308,7 @@ public class WebController extends HttpServlet {
 		
 		request.setAttribute("message",message);
 		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		
 		rd.forward(request, response);
 		
 	}
@@ -312,15 +323,20 @@ public class WebController extends HttpServlet {
 		searchdata.setBranch(request.getParameter("branch"));
 		
 		try {
-			List<Sales>sale=service.searchBranchSales(searchdata);
-			if(sale.isEmpty()) {
+			List<Sales>saletotal=service.searchBranchSales(searchdata);
+			if(saletotal.isEmpty()) {
 				
 				message="Sales Not available";
 				
 			}
 			
-			getSales(request,response);
-			request.setAttribute("branchsearch", sale);
+			HttpSession session=request.getSession();
+			
+			session.setAttribute("branchsearch", saletotal);
+			
+			
+			//getSales(request,response);
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			message=e.getMessage();
@@ -328,10 +344,52 @@ public class WebController extends HttpServlet {
 		request.setAttribute("message",message);
 		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
 		rd.forward(request, response);
+		
 		request.setAttribute("message",message);
 	    
 	}
 	
+	private void viewOrders(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String message= "";
+		BookingService service=new BookingService();
+		
+		Booking booking=new Booking();
+		
+		try {
+			List<Booking>orders=service.getAllBooking();
+			if(orders.isEmpty()) {
+				message="No orders found";
+				
+			}
+			request.setAttribute("viewAllBooking", orders);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-booking-orders.jsp");
+		rd.forward(request, response);
+	}
+	
+	public void getAllDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		DriverClass driver=new DriverClass();
+		DriverService service=new DriverService();
+		try {
+			List<DriverClass>drivers=service.getAllDriversData();
+			if(drivers.isEmpty()) {
+				
+				message="No Driver Data";
+			}
+			request.setAttribute("driversdata", drivers);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+	}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-alldrivers.jsp");
+		rd.forward(request, response);
+	}
 }
 
 
