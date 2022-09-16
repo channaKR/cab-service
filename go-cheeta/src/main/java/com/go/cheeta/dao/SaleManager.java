@@ -74,29 +74,27 @@ public class SaleManager {
 		 return saledata;
 	}
 	
-	public static List<Sales> searchBranchSales() throws ClassNotFoundException, SQLException {
+	public static List<Sales> searchBranchSales(Sales sale) throws ClassNotFoundException, SQLException {
 		
 		 DbConnector connector = new DbConnectorSQL();
 		 Connection connection = connector.getConnection();
-		 String query = "SELECT  SUM(coast) ,branch FROM confirmorder group by branch ";
-		 Statement st=connection.createStatement();
-		 ResultSet rs=st.executeQuery(query);
+		 String query = "SELECT SUM(coast),branch FROM gocheeta.confirmorder where paymentdate=? && branch=?";
+		 PreparedStatement ps=connection.prepareStatement(query);
+		 ps.setString(1, sale.getDate().toString());
+		 ps.setString(2, sale.getBranch());
+		 ResultSet rs=ps.executeQuery();
+		 List<Sales>sales=new ArrayList<Sales>();
 		 
-		 List<Sales>sales=new ArrayList();
+		
 		 while(rs.next()) {
-			 Sales sale=new Sales();
+			 sale=new Sales();
 			 sale.setPaymentcoast(rs.getFloat("SUM(coast)"));
 			 sale.setBranch(rs.getString("branch"));
 			 sales.add(sale);
 		 }
-		 
-		    st.close();
-			connection.close();
-			
-		return sales;
-		
-		
-		
-	}
+		 connection.close();
+		 return sales;
+}
+	
 
 }

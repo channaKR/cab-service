@@ -50,6 +50,10 @@
   	<servlet-name>WebController</servlet-name>
   	<url-pattern>/addDriver</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WebController</servlet-name>
+  	<url-pattern>/salesData</url-pattern>
+  </servlet-mapping>
    <servlet-mapping>
   	<servlet-name>WebController</servlet-name>
   	<url-pattern>/loadVehicle</url-pattern>

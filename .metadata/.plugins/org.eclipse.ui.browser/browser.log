@@ -259,3 +259,15 @@ Sept 15, 2022 22:56:08.694 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul byt
 Sept 15, 2022 22:56:08.699 [2022-09-15T17:26:08Z ERROR mp4parse] Found 2 nul bytes in "\0\0"
 Sept 15, 2022 23:36:55.426 [Parent 4060, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
 Sept 15, 2022 23:36:55.436 [Parent 4060, IPC I/O Parent] WARNING: file /builds/worker/checkouts/gecko/ipc/chromium/src/base/process_util_win.cc:167
+
+Sept 16, 2022 03:00:07.360 NEW SESSION
+Sept 16, 2022 03:00:07.360 [14392:7944:0916/030007.357:ERROR:data_type_manager_impl.cc(33)] Passwords cryptographer error was encountered: 
+Sept 16, 2022 03:00:09.242 [14392:7944:0916/030009.241:ERROR:device_event_log_impl.cc(214)] [03:00:09.241] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Sept 16, 2022 03:01:05.687 [14392:7152:0916/030105.686:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+Sept 16, 2022 03:06:52.922 NEW SESSION
+Sept 16, 2022 03:06:52.922 [8832:8796:0916/030652.904:ERROR:data_type_manager_impl.cc(33)] Passwords cryptographer error was encountered: 
+Sept 16, 2022 03:06:54.969 [8832:8796:0916/030654.968:ERROR:device_event_log_impl.cc(214)] [03:06:54.968] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Sept 16, 2022 03:07:48.370 [8832:11488:0916/030748.369:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+Sept 16, 2022 03:52:52.72 [8832:8796:0916/035252.071:ERROR:device_event_log_impl.cc(214)] [03:52:52.072] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+Sept 16, 2022 08:07:48.375 [8832:11488:0916/080748.373:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

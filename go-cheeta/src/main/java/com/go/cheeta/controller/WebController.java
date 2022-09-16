@@ -2,6 +2,7 @@ package com.go.cheeta.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.*;
 
 import javax.mail.MessagingException;
@@ -33,8 +34,13 @@ public class WebController extends HttpServlet {
 		   else if(action.equals("viewallsale")) {
 			   
 			   getSales(request,response);
-			   //getTotal(request,response);
+			   
 		   }
+		   else if(action.equals("branchtot")) {
+				
+			   searchTotal(request,response);
+			   
+			}
 	
 	}
 
@@ -63,9 +69,7 @@ public class WebController extends HttpServlet {
 			
 		}
 		
-		else if(action.equals("sendto")) {
-			//send(request, response);
-		}
+		
 	}
 	
 	
@@ -258,7 +262,7 @@ public class WebController extends HttpServlet {
 		String message= "";
 		SaleService service=new SaleService();
 		
-		//Booking bookin=new Booking();
+		
 		
 		try {
 			List<Sales>sale=service.searchByBranch();
@@ -298,7 +302,35 @@ public class WebController extends HttpServlet {
 		
 	}
 
+	private void searchTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SaleService service=new SaleService();
+		String message= "";
+		String searchbydate=request.getParameter("date");
+		LocalDate date = LocalDate.parse (searchbydate);
+		Sales searchdata=new Sales();
+		searchdata.setDate(date);
+		searchdata.setBranch(request.getParameter("branch"));
 		
+		try {
+			List<Sales>sale=service.searchBranchSales(searchdata);
+			if(sale.isEmpty()) {
+				
+				message="Sales Not available";
+				
+			}
+			
+			getSales(request,response);
+			request.setAttribute("branchsearch", sale);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		rd.forward(request, response);
+		request.setAttribute("message",message);
+	    
+	}
 	
 }
 

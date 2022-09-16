@@ -22,7 +22,7 @@ tsize thead tr { border: 14pt double(1,12,1) }
 thead { background: #38AAA4; color:#333A47; }
 .search{
 
-width: 20%;  
+width: 50%;  
 color:red;
 display: flex;
   flex-wrap: nowrap;
@@ -76,9 +76,9 @@ display: flex;
 
 
  <th>
- <tag:set var="total" scope="session" value="${tot}"/>
+
+  <tag:set var="total" scope="session" value="${tot}"/>
  <tag:out value="${total.getPaymentcoast()}"/>
- 
  </th>
  
  </tr>
@@ -93,10 +93,36 @@ display: flex;
 
 
 </table><br>
+<form action="salesData" method="GET">
 <div class="search">
-<input type="date"  class=" txt form-control addvehicle-input" name="enddate" id="enddate"   required>
+<input type="hidden" name="action" value="branchtot">
+<input type="date"  class=" txt form-control addvehicle-input" name="date"  required>
+ <select class="form-select form-group" aria-label="Default select example" name="branch" required>
+   
+  <option VALUE=""><b>Select Branch</b></option>
+  <option value="galle">Galle</option>
+  <option value="kandy" >Kandy</option>
+  <option value="nugegoda">Nugegoda</option>
+  <option value="gampaha">Gampaha</option>
+  <option value="kurunegala">Kurunegala</option>
+    <option value="jaffna">Jaffna</option>
+    </select>
 <button type="submit" class="searchbtn btn btn-light" >Search</button> 
- </div>
+</div>
+ </form><br>
+ <tag:forEach var="searchtotal" items="${branchsearch}">
+<table class="tsize">
+<thead>
+<tr>
+<th>Total</th>
+<th>${searchtotal.getPaymentcoast()}</th>
+
+</tr>
+
+</thead>
+</table>
+
+</tag:forEach>
 </div>
 </div>
  </div>

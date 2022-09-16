@@ -29,4 +29,7 @@ public class SaleService {
 		
 		return SaleManager.allCoast();
 	}
+	public  List<Sales> searchBranchSales(Sales sale) throws ClassNotFoundException, SQLException{
+		return SaleManager.searchBranchSales(sale);
+	}
 }
