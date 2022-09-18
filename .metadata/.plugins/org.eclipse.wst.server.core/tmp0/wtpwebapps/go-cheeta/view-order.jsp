@@ -19,8 +19,7 @@
 </head>
 <body>
 <%
-
-if((String) session.getAttribute("user")==null){
+if((String) session.getAttribute("drivername")==null){
 	
 	response.sendRedirect("driver-login.jsp");
 }
@@ -66,13 +65,13 @@ if((String) session.getAttribute("user")==null){
                                     <td>${ order.getBaranch()}</td>
                                     <td>${ order.getKillometers()}</td>
                                     <td> ${ order. getCostfor_vehicle()} <td> 
-                                    <tag:if test="${order.isConfirm()==0}">
+                                    <tag:if test="${order.getConfirm()==0}">
                                     <td>
                                    <form action="updateData" method="post"> <input type="hidden" name="bookingid" value="${order.getBooking_ID()}"><input type="hidden" name="action" value="cofirm"><button type="submit" class="cofrm btn btn-primary btn-xs">Confirm</button></form>
                                    <button type="submit" class="cancel btn btn-danger">Cancel</button></td>
                                    
                                    </tag:if>
-                                   <tag:if test="${order.isConfirm()==1}">
+                                   <tag:if test="${order.getConfirm()==1}">
                                     
                                            <td><form action="insertData" method="post">
                                            <input type="hidden"  name="customerid" value="${order.getCustomerid()}">

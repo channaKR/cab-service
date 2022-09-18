@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.go.cheeta.model.Account;
+import com.go.cheeta.model.Booking;
 import com.go.cheeta.model.DriverClass;
 import com.go.cheeta.model.Sales;
 import com.go.cheeta.model.Vehicle;
@@ -59,8 +61,28 @@ public class DriversManager {
 		    st.close();
 			connection.close();
 			return drivers;
-		
-		
 	}
 	
+	public static DriverClass getDriverbyVehicle(Vehicle vehicle) throws ClassNotFoundException, SQLException {
+		
+		DbConnector connector =new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		
+		String query="SELECT * FROM gocheeta.driver where vid=?";
+		PreparedStatement ps=connection.prepareStatement(query);
+		ps.setInt(1, vehicle.getVehicleID());
+	    ResultSet rs=ps.executeQuery();
+	    DriverClass rd=new DriverClass();
+	    
+	    while(rs.next()) {
+	    	DriverClass driverdata=new DriverClass(rs.getString("drivernic"),rs.getString("drivername"),rs.getString("driveraddress"),rs.getString("contact"),rs.getString("email"),rs.getInt("vid"));
+	    
+	      rd=driverdata;
+	    }
+	   
+	    ps.close();
+		connection.close();
+		return rd;
+		
+	}
 }

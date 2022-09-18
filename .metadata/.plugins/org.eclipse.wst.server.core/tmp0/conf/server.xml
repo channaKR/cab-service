@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="T:\Tempory Data\Web App\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="T:\Tempory Data\Web App\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\go-cheeta" path="/go-cheeta" reloadable="true" source="org.eclipse.jst.j2ee.server:go-cheeta"/></Host>
+      <Context docBase="T:\Tempory Data\Web App\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="T:\Tempory Data\Web App\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\go-cheeta" path="/go-cheeta" reloadable="true" source="org.eclipse.jst.j2ee.server:go-cheeta"/><Context docBase="T:\Tempory Data\Web App\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\cab-web" path="/cab-web" reloadable="true" source="org.eclipse.jst.j2ee.server:cab-web"/></Host>
     </Engine>
   </Service>
 </Server>

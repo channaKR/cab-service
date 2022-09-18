@@ -124,12 +124,12 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
 
    <div class="row-data spc">
    
-   <label>Start Date</label><input type="date" name="startdate" class="form-group" required/>
+   <label>Start Date</label><input type="date" name="startdate" id="startdate" class="form-group" required/>
   
      
     </div><br>
     <div class="row-data spc">
-   <label>End Date</label><input type="date"  class="form-group" name="enddate" required/>
+   <label>End Date</label><input type="date"  class="form-group" name="enddate" id="enddate" required/>
     </div><br>
     
     <div class="row-web">
@@ -152,7 +152,16 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
    
  </div>
  
+<script>
+ startdate.min = new Date().toISOString().split("T")[0];
+ 
+ 
 
+</script>
+<script type="text/javascript">
+
+enddate.min = new Date().toISOString().split("T")[0];
+</script>
 </body>
 
 </html>

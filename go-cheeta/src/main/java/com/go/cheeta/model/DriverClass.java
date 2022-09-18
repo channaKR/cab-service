@@ -1,13 +1,29 @@
 package com.go.cheeta.model;
 
 public class DriverClass {
-   
-	private int vehicleID;
-	private String drivername;
-	private String contactnumber;
 	private String nicnumber;
+	private String drivername;
 	private String address;
+	private String contactnumber;
 	private String email;
+	private int vehicleID;
+	
+	public DriverClass() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public DriverClass(String nicnumber, String drivername, String address, String contactnumber, String email,
+			int vehicleID) {
+		super();
+		this.nicnumber = nicnumber;
+		this.drivername = drivername;
+		this.address = address;
+		this.contactnumber = contactnumber;
+		this.email = email;
+		this.vehicleID = vehicleID;
+	}
+
 	public int getDriverid() {
 		return vehicleID;
 	}

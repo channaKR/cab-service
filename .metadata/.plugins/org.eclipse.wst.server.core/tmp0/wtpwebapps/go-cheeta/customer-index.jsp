@@ -16,7 +16,7 @@
    
 </style>
 
-<title>Index</title>
+<title>Customer Page</title>
 </head>
 <body>
 <tag:set var = "username" scope = "session" value = ""/>

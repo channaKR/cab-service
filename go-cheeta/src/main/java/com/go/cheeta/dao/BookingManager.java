@@ -32,7 +32,30 @@ public class BookingManager {
 		
 		
 	}
-	
+	//________________________________________________________>>
+	public static List<Booking> byCustomer(Booking booking) throws SQLException, ClassNotFoundException {
+		DbConnector connector =new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		
+		String query="SELECT * FROM gocheeta.booking where customerid=?";
+		PreparedStatement ps=connection.prepareStatement(query);
+		ps.setInt(1, booking.getCustomerid());
+	    ResultSet rs=ps.executeQuery();
+	    List<Booking> vehiclebook=new ArrayList();
+	    while(rs.next()) {
+	    	String startDate=rs.getString("startdate");
+			String endDate=rs.getString("enddate");
+			LocalDate start_DateLocalDate = LocalDate.parse (startDate);
+			LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
+	    	Booking bookingData=new Booking(rs.getInt("bookingid"),start_DateLocalDate,endt_DateLocalDate,
+	    			rs.getString("branch"),rs.getString("location"),rs.getDouble("km"),rs.getInt("vid"),
+	    			rs.getInt("customerid"),rs.getDouble("fullcost"),rs.getInt("confirm"));
+	    			vehiclebook.add(bookingData);
+	    }
+	   
+	    
+		return vehiclebook;
+	}
 	
 	public static List<Booking> viewOrdersDriver(Booking booking,DriverClass driver) throws ClassNotFoundException, SQLException {
 		
@@ -75,7 +98,7 @@ public class BookingManager {
 		Connection connection = connector.getConnection();
 		String query="Update booking set confirm=? where  bookingid=?";
 		PreparedStatement ps = connection.prepareStatement(query);
-		ps.setInt(1,booking.isConfirm());
+		ps.setInt(1,booking.getConfirm());
 		ps.setInt(2, booking.getBooking_ID());
 		
 		boolean result = ps.executeUpdate() > 0 ;
@@ -133,9 +156,8 @@ public class BookingManager {
 		connection.close();
 		
 		return bookingdata;
-		
-		
-		
 	}
+	
+	
 	
 }

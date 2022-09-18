@@ -16,7 +16,7 @@
 <h1>${message}</h1>
 <%
 
-if((String) session.getAttribute("user")==null){
+if((String) session.getAttribute("drivername")==null){
 	
 	response.sendRedirect("driver-login.jsp");
 }

@@ -12,9 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.go.cheeta.model.Account;
-import com.go.cheeta.model.Customer;
 import com.go.cheeta.model.*;
+import com.go.cheeta.service.BookingService;
 import com.go.cheeta.service.CustomerService;
 import com.go.cheeta.service.User;
 import com.go.cheeta.service.VehicleService;
@@ -56,6 +55,10 @@ public class CustomerController extends HttpServlet {
 			 
 			 getAvailablevehiclegData(request,response);
 		 }
+		 else if(action.equals("myorders")) {
+				
+				getCustomerBookings(request, response);
+			}
 		
 	}
 
@@ -195,7 +198,7 @@ public class CustomerController extends HttpServlet {
 		
 	}	
 	
-	public void getAvailablevehiclegData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	private void getAvailablevehiclegData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		String message= "";
 		HttpSession session=request.getSession();
 		int vehicleid=Integer.parseInt(request.getParameter("vehicleid")) ;
@@ -206,4 +209,25 @@ public class CustomerController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
+	private void getCustomerBookings(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		BookingService service=new BookingService();  
+		Booking book=new Booking();
+		book.setCustomerid(Integer.parseInt(request.getParameter("customer")));
+		try {
+			List<Booking>customerbooking=service.byCustomer(book);
+			if(customerbooking.isEmpty()) {
+				message="Empty List";
+			}
+			request.setAttribute("customerbooking", customerbooking);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		} 
+		
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("all-booking-data.jsp");
+		rd.forward(request, response);
+		
+	}
 }

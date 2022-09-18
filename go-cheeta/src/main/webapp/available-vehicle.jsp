@@ -142,7 +142,7 @@ if((String) session.getAttribute("user")==null){
 	response.sendRedirect("customer-login.jsp");
 }
 %>
-<jsp:include page="home-page-navbar.jsp" />
+<jsp:include page="customer-navbar.jsp" />
  
 <div class="d-flex justify-content-center cent">
  <p>${message}</p>
@@ -243,7 +243,16 @@ if((String) session.getAttribute("user")==null){
         </div>
      
         </div>
+<script>
+ startdate.min = new Date().toISOString().split("T")[0];
+ 
+ 
 
+</script>
+<script type="text/javascript">
+
+enddate.min = new Date().toISOString().split("T")[0];
+</script>
 </body>
 
 </html>

@@ -45,8 +45,11 @@ public class DriverService implements User {
 	 
 	public List<DriverClass>getAllDriversData() throws ClassNotFoundException, SQLException{
 		return DriversManager.driverData();
+	}
+	
+	
+	public DriverClass getDriverInformation(Vehicle vehicle) throws ClassNotFoundException, SQLException {
 		
-		
-		
+		return DriversManager.getDriverbyVehicle(vehicle);
 	}
 }

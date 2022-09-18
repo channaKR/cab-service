@@ -66,11 +66,11 @@
                                  <td>${ order. getCustomerid()}</td>
                                  <td>${ order.getCostfor_vehicle()}</td>
                                  <td>
-                                 <tag:if test="${order.isConfirm()==0}">
+                                 <tag:if test="${order.getConfirm()==0}">
                                 
                                   <div>No</div>
                                   </tag:if>
-                                   <tag:if test="${order.isConfirm()==1}">
+                                   <tag:if test="${order.getConfirm()==1}">
                                  <div>Yes</div>
                                  </tag:if>
                                  

@@ -20,6 +20,7 @@ import com.go.cheeta.model.Customer;
 import com.go.cheeta.model.DriverClass;
 import com.go.cheeta.model.Sales;
 import com.go.cheeta.model.Vehicle;
+import com.go.cheeta.service.BookingService;
 import com.go.cheeta.service.CustomerService;
 import com.go.cheeta.service.DriverService;
 import com.go.cheeta.service.SaleService;
@@ -52,6 +53,10 @@ public class DriverController extends HttpServlet {
 		   else if (action.equals("confirmpayment")) {
 			   
 			   addSale(request,response);
+		   }
+		   else if(action.equals("driverinfor")) {
+			   
+			   getDriverInfor(request,response);
 		   }
 	}
 
@@ -102,7 +107,7 @@ public class DriverController extends HttpServlet {
 			else if(result.getDrivername()!=null) {
 				HttpSession session=request.getSession();
 				
-				session.setAttribute("user", result.getDrivername());
+				session.setAttribute("drivername", result.getDrivername());
 				session.setAttribute("drivernic", result.getNicnumber());
 			}
 			
@@ -174,6 +179,28 @@ public class DriverController extends HttpServlet {
 		SaleService service=new SaleService();
 		service.delteBooking(booking);
 		
+	}
+	
+	private void getDriverInfor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		Vehicle vehicle=new Vehicle();
+		vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleid")));
+		DriverService service=new DriverService();
+		DriverClass driverinfor=new DriverClass();
+		
+		try {
+			driverinfor=service.getDriverInformation(vehicle);
+			
+			//<%=session.getAttribute("customerid")%>
+			request.setAttribute("data", driverinfor);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+		message=e.getMessage();
+		}
+	
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+		rd.forward(request, response);
 	}
 	
 }

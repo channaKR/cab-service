@@ -131,6 +131,7 @@ display: flex;
  </div>
 
 <div>${message}</div>
+
 <script type="text/javascript">
 function hideButton()
 {
