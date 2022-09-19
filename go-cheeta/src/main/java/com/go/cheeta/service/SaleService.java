@@ -32,4 +32,8 @@ public class SaleService {
 	public  List<Sales> searchBranchSales(Sales sale) throws ClassNotFoundException, SQLException{
 		return SaleManager.searchBranchSales(sale);
 	}
+	
+	public List<Sales> getSalesbyID(Sales sale) throws ClassNotFoundException, SQLException {
+		return SaleManager.getConfirmOrders(sale);
+	}
 }

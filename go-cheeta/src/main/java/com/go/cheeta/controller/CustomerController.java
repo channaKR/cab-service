@@ -228,7 +228,8 @@ public class CustomerController extends HttpServlet {
 		request.setAttribute("message", message);
 		RequestDispatcher rd=request.getRequestDispatcher("all-booking-data.jsp");
 		rd.forward(request, response);
-		
 	}
+	
+	
 	
 }

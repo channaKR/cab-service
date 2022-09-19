@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.List.*;
@@ -90,6 +91,31 @@ public class SaleManager {
 			 sale=new Sales();
 			 sale.setPaymentcoast(rs.getFloat("SUM(coast)"));
 			 sale.setBranch(rs.getString("branch"));
+			 sales.add(sale);
+		 }
+		 connection.close();
+		 return sales;
+}
+	
+
+	public static List<Sales> getConfirmOrders(Sales sale) throws ClassNotFoundException, SQLException {
+		
+		 DbConnector connector = new DbConnectorSQL();
+		 Connection connection = connector.getConnection();
+		 String query = "SELECT * FROM gocheeta.confirmorder where customerid=? or vehicleregnumber=?";
+		 PreparedStatement ps=connection.prepareStatement(query);
+		 ps.setInt(1, sale.getCustomerid());
+		 ps.setInt(2, sale.getVehicleRegisterNumber());
+		 ResultSet rs=ps.executeQuery();
+		 List<Sales>sales=new ArrayList<Sales>();
+		 
+		
+		 while(rs.next()) {
+			 	String dateorder=rs.getString("paymentdate");
+	    		
+	    		LocalDate orderdate = LocalDate.parse (dateorder);
+	    		sale=new Sales(rs.getInt("orderid"),rs.getInt("customerid"),rs.getDouble("coast"),rs.getInt("vehicleregnumber"),rs.getString("branch"),orderdate);
+			 
 			 sales.add(sale);
 		 }
 		 connection.close();

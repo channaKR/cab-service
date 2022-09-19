@@ -22,6 +22,12 @@
   	<description></description>
   	<servlet-class>com.go.cheeta.controller.DriverController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SaleController</servlet-name>
+  	<display-name>SaleController</display-name>
+  	<description></description>
+  	<servlet-class>com.go.cheeta.controller.SaleController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>WebController</servlet-name>
   	<url-pattern>/WebController</url-pattern>
@@ -113,6 +119,10 @@
    <servlet-mapping>
    	<servlet-name>DriverController</servlet-name>
    	<url-pattern>/deleteData</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
+   	<servlet-name>SaleController</servlet-name>
+   	<url-pattern>/saledata</url-pattern>
    </servlet-mapping>
 
 </web-app>

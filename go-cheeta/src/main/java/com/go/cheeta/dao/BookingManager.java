@@ -136,9 +136,9 @@ public class BookingManager {
 			
 			Booking bookingData=new Booking();
     		String startDate=rs.getString("startdate");
-		String endDate=rs.getString("enddate");
-		LocalDate start_DateLocalDate = LocalDate.parse (startDate);
-		LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
+    		String endDate=rs.getString("enddate");
+    		LocalDate start_DateLocalDate = LocalDate.parse (startDate);
+    		LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
 		bookingData.setCustomerid(rs.getInt("customerid"));
     		bookingData.setBooking_ID(rs.getInt("bookingid"));
     		bookingData.setStart_Date(start_DateLocalDate);

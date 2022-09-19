@@ -9,7 +9,7 @@ public class Sales {
 	private double paymentcoast;
 	private int vehicleRegisterNumber;
 	private String branch;
-	private LocalDate Date;
+	private LocalDate date;
 	
 	public Sales() {
 		super();
@@ -24,7 +24,7 @@ public class Sales {
 		this.paymentcoast = paymentcoast;
 		this.vehicleRegisterNumber = vehicleRegisterNumber;
 		this.branch = branch;
-		Date = date;
+		this.date = date;
 	}
 
 	public int getOrderid() {
@@ -68,11 +68,11 @@ public class Sales {
 	}
 
 	public LocalDate getDate() {
-		return Date;
+		return date;
 	}
 
 	public void setDate(LocalDate date) {
-		Date = date;
+		this.date = date;
 	}
 	
 	
