@@ -199,8 +199,8 @@ if((String) session.getAttribute("user")==null){
                                  
                                  <td>
                                  <form action="viewData" method="post">
-                                 <input type="text" name="vehicleid" value="${order.getVehicle_ID()}">
-                                 <input type="text" name="action" value="driverinfor">
+                                 <input type="hidden" name="vehicleid" value="${order.getVehicle_ID()}">
+                                 <input type="hidden" name="action" value="driverinfor">
                                  <button class="btn btn-primary " type="submit"><i class="bi bi-telephone"></i>Contact</button>
                                  </form>
                                  </td>

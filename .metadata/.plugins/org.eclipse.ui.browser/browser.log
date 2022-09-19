@@ -312,3 +312,6 @@ Sept 19, 2022 01:47:13.525 [16256:10492:0919/014713.524:ERROR:device_event_log_i
 Sept 19, 2022 01:48:10.621 [16256:11616:0919/014810.621:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
 Sept 19, 2022 01:57:56.543 [17196:15908:0919/015756.542:ERROR:device_event_log_impl.cc(214)] [01:57:56.542] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
 Sept 19, 2022 01:58:51.380 [17196:11660:0919/015851.380:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+Sept 19, 2022 06:58:51.391 [17196:18536:0919/065851.389:ERROR:util.cc(129)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+Sept 19, 2022 08:46:02.359 [17196:15908:0919/084602.358:ERROR:device_event_log_impl.cc(214)] [08:46:02.358] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
+Sept 19, 2022 09:01:09.571 [17196:15908:0919/090109.570:ERROR:device_event_log_impl.cc(214)] [09:01:09.570] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)

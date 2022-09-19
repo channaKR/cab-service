@@ -20,8 +20,6 @@
 </head>
 <body>
 
-<h1>Hello</h1>
-
 <jsp:include page="home-page-navbar.jsp"/>
 <div class="bg"></div>
 

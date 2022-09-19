@@ -190,17 +190,21 @@ public class DriverController extends HttpServlet {
 		
 		try {
 			driverinfor=service.getDriverInformation(vehicle);
+			HttpSession session=request.getSession();
+			session.setAttribute("drivername",driverinfor.getDrivername() );
+			session.setAttribute("dcontact",driverinfor.getContactnumber() );
 			
-			//<%=session.getAttribute("customerid")%>
-			request.setAttribute("data", driverinfor);
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 		message=e.getMessage();
 		}
 	
 		request.setAttribute("message", message);
-		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("driver-infor.jsp");
 		rd.forward(request, response);
 	}
+	
+	
 	
 }
