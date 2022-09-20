@@ -52,4 +52,8 @@ public class DriverService implements User {
 		
 		return DriversManager.getDriverbyVehicle(vehicle);
 	}
+	
+	public boolean UpdateDriver(DriverClass driver) throws ClassNotFoundException, SQLException {
+		return DriversManager.updateDriver(driver);
+	}
 }

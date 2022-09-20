@@ -42,6 +42,12 @@ public class DriverController extends HttpServlet {
 				
 				getVehiclesWithoutDrivers(request, response,"edit-driver");
 			}
+		 else if(action.equals("alldrivers")) {
+			   
+			   
+			   getAllDriver(request, response);
+		   }
+		  
 		
 	}
 
@@ -71,6 +77,11 @@ public class DriverController extends HttpServlet {
 				viewbyID(request, response);
 			}
 			
+		   else if(action.equals("update")) {
+				
+			   updateDriver(request, response);
+			}
+		  
 		  
 	}
 
@@ -293,5 +304,35 @@ public class DriverController extends HttpServlet {
 		RequestDispatcher rd=request.getRequestDispatcher("edit-driver.jsp");
 		rd.forward(request, response);
 	}
-
+	
+	
+	private void updateDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		DriverClass driver=new DriverClass();
+		DriverService service=new DriverService();
+		driver.setNicnumber(request.getParameter("nic"));
+		driver.setDrivername(request.getParameter("dname"));
+		driver.setAddress(request.getParameter("branch"));
+		driver.setContactnumber(request.getParameter("contact"));
+		driver.setEmail(request.getParameter("email"));
+		driver.setNicnumber(request.getParameter("updatenic"));
+		driver.setVehicleID(Integer.parseInt(request.getParameter("model")));
+		try {
+			boolean driverdata=service.UpdateDriver(driver);
+			if(driverdata) {
+				message="Driver Updated";
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			 message= e.getMessage();
+		}
+		request.setAttribute("message", message);
+		response.sendRedirect("/go-cheeta/viewData?action=alldrivers");
+		//RequestDispatcher rd=request.getRequestDispatcher("/go-cheeta/viewData?action=alldrivers");
+		//rd.forward(request, response);
+	
+	}
+	
+	
 }

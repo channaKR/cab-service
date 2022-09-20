@@ -32,7 +32,7 @@
 <tag:set var = "dropdown" scope = "session" value="${dropdown}"/>
  <div class="d-flex justify-content-center">
  
- <form action="addDriver" method="post">
+ <form action="updateData" method="post">
   <div class="form-group ">
     <input type="text" class="form-control addvehicle-input" name="nic" id="" placeholder="Driver Nic Number"  value="${driverdata.getNicnumber()}" required>
   </div><br>
@@ -124,10 +124,11 @@
       </tag:forEach>   
       </select>
   </div><br>
- 
-   <input type="hidden" name="action" value="addDriver"/>
+ <input type="hidden" name="updatenic" value="${driverdata.getNicnumber()}"/>
+   <input type="hidden" name="action" value="update"/>
+    
    <div class="d-flex justify-content-center">
-  <button type="submit" class="btn btn-success addvehiclebtn">Insert Driver</button></div>
+  <button type="submit" class="btn btn-success addvehiclebtn">Update Driver</button></div>
  
  </form>
  

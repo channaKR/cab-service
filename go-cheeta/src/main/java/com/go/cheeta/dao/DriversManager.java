@@ -86,7 +86,7 @@ public class DriversManager {
 		
 	}
 
-  public static List<DriverClass>getAllDrivers() throws ClassNotFoundException, SQLException{
+	public static List<DriverClass>getAllDrivers() throws ClassNotFoundException, SQLException{
 	  DbConnector connector = new DbConnectorSQL();
 		 Connection connection = connector.getConnection();
 		 String query = "SELECT * FROM gocheeta.driver";
@@ -108,5 +108,23 @@ public class DriversManager {
 	  
   }
 
-
+	public static boolean updateDriver(DriverClass driver) throws ClassNotFoundException, SQLException {
+	 	DbConnector connector =new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		String query = "UPDATE driver SET drivernic=?,drivername=?,driveraddress=?,contact=?,email=?,vid=?  where drivernic=?";
+		PreparedStatement ps = connection.prepareStatement(query);
+		ps.setString(1, driver.getNicnumber());
+		ps.setString(2, driver.getDrivername());
+		ps.setString(3, driver.getAddress());
+		ps.setString(4, driver.getContactnumber());
+		ps.setString(5, driver.getEmail());
+		ps.setInt(6, driver.getVehicleID());
+		ps.setString(7, driver.getNicnumber());
+		boolean result = ps.executeUpdate() > 0 ;
+		ps.close();
+		connection.close();
+		return result;
+	 
+	 
+ }
 }
