@@ -35,9 +35,19 @@
  <div class="form-group ">
     <input type="text" class="form-control addvehicle-input" name="dname" id="" placeholder="Driver Name" required>
   </div><br>
-   <div class="form-group ">
-   <textarea class="form-control addvehicle-input resize" name="address" placeholder="address" required></textarea>
-    </div><br>
+   <div class="form-group " >
+  <select class="form-select form-group" aria-label="Default select example" name="address" required>
+   
+  <option VALUE=""><b>Select Branch</b></option>
+  <option value="galle">Galle</option>
+  <option value="kandy" >Kandy</option>
+  <option value="nugegoda">Nugegoda</option>
+  <option value="gampaha">Gampaha</option>
+  <option value="kurunegala">Kurunegala</option>
+    <option value="jaffna">Jaffna</option>
+    </select>
+  </div><br>
+   
   <div class="form-group ">
     <input type="text" class="form-control addvehicle-input" name="contact" id="" placeholder="Driver Contact Number" required>
   </div><br>

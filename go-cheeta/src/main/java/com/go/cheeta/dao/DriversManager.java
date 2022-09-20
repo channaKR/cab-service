@@ -85,4 +85,28 @@ public class DriversManager {
 		return rd;
 		
 	}
+
+  public static List<DriverClass>getAllDrivers() throws ClassNotFoundException, SQLException{
+	  DbConnector connector = new DbConnectorSQL();
+		 Connection connection = connector.getConnection();
+		 String query = "SELECT * FROM gocheeta.driver";
+		 Statement st=connection.createStatement();
+		 ResultSet rs=st.executeQuery(query);
+		 
+		 List<DriverClass>drivers=new ArrayList();
+		 while(rs.next()) {
+			 
+			 DriverClass driver=new DriverClass();
+			 drivers.add(driver);
+		 }
+		 
+		    st.close();
+			connection.close();
+			return drivers;
+	  
+	  
+	  
+  }
+
+
 }

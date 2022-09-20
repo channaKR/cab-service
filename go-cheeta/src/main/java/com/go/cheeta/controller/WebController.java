@@ -74,7 +74,9 @@ public class WebController extends HttpServlet {
 			addDriver(request, response);
 			
 		}
-		
+		else if(action.equals("getdriver")) {
+			viewOrders(request, response);
+		}
 		
 	}
 	
@@ -109,8 +111,13 @@ public class WebController extends HttpServlet {
 	private void viewVehicle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message= "";
 		VehicleService service=new VehicleService();
+		DriverClass driverdata=new DriverClass();
+		DriverService driverservice=new DriverService();
+		
 		try {
 			List<Vehicle>vehicles=service.viewAllVehicle();
+			
+			
 			if(vehicles.isEmpty()) {
 				 message="There's no any vehicles";
 
@@ -352,10 +359,25 @@ public class WebController extends HttpServlet {
 	private void viewOrders(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String message= "";
 		BookingService service=new BookingService();
-		
 		Booking booking=new Booking();
 		
+		
 		try {
+			
+			if(request.getParameter("vehicleids")!=null) {
+				Vehicle vehicle=new Vehicle();
+				VehicleService vehicleservice=new VehicleService();
+				vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+				DriverService driverservice=new DriverService();
+				DriverClass driverinfor=new DriverClass();
+				vehicle=vehicleservice.getTheVehicleByVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+				driverinfor=driverservice.getDriverInformation(vehicle);
+				HttpSession session=request.getSession();
+				session.setAttribute("vmodel", vehicle.getVehicle_Model());
+				session.setAttribute("dname",driverinfor.getDrivername() );
+				session.setAttribute("dcontact",driverinfor.getContactnumber() );
+				
+			}
 			List<Booking>orders=service.getAllBooking();
 			if(orders.isEmpty()) {
 				message="No orders found";
@@ -371,7 +393,7 @@ public class WebController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
-	public void getAllDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void getAllDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message= "";
 		DriverClass driver=new DriverClass();
 		DriverService service=new DriverService();
@@ -382,6 +404,7 @@ public class WebController extends HttpServlet {
 				message="No Driver Data";
 			}
 			request.setAttribute("driversdata", drivers);
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			message=e.getMessage();
@@ -391,6 +414,7 @@ public class WebController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
+
 	
 	
 }

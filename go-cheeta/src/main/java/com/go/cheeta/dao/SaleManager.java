@@ -102,10 +102,10 @@ public class SaleManager {
 		
 		 DbConnector connector = new DbConnectorSQL();
 		 Connection connection = connector.getConnection();
-		 String query = "SELECT * FROM gocheeta.confirmorder where customerid=? or vehicleregnumber=?";
+		 String query = "SELECT * FROM gocheeta.confirmorder where customerid=?";
 		 PreparedStatement ps=connection.prepareStatement(query);
 		 ps.setInt(1, sale.getCustomerid());
-		 ps.setInt(2, sale.getVehicleRegisterNumber());
+		
 		 ResultSet rs=ps.executeQuery();
 		 List<Sales>sales=new ArrayList<Sales>();
 		 

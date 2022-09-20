@@ -62,10 +62,15 @@
 			  <div class="dropdown-content">
 			  <form action="bookingVehicle" method="POST" id="bookingdata">
 			  <input type="hidden" name="customer" value="<%=session.getAttribute("customerid")%>">
-			<input type="hidden" name="action" value="myorders">	
+				<input type="hidden" name="action" value="myorders">	
 			  <a href="#" onclick="submitID()">View Booking</a>
 			  </form>
-			  <a href="#">View History </a>
+			  <form action="saledata" method="POST" id="vieworder">
+			  <input type="hidden" name="action" value="orderhistory">	
+			  
+			  <input type="hidden" name="customer" value="<%=session.getAttribute("customerid")%>">
+			  <a href="#" onclick="submitOderHistory()">View History </a>
+			  </form>
 			  <a href="#">Add Comment</a>
 			  <a href="#">Messages</a>
   			</div>
@@ -76,9 +81,14 @@
     </div>
     
       <script>
-					function submitID() {
-					  document.getElementById("bookingdata").submit();
-					}
-					</script>
+		function submitID() {
+		document.getElementById("bookingdata").submit();
+		}
+		
+		function submitOderHistory() {
+			document.getElementById("vieworder").submit();
+			}
+			
+	   </script>
 </body>
 </html>

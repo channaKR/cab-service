@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.go.cheeta.model.Booking;
+import com.go.cheeta.model.Sales;
 import com.go.cheeta.service.BookingService;
+import com.go.cheeta.service.SaleService;
 
 public class SaleController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,27 +25,31 @@ public class SaleController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		String action=request.getParameter("action");
+		if(action.equals("orderhistory")) {
+			getOrdersbyId(request,response);
+		}
+		
 	}
 	
 	private void getOrdersbyId(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message= "";
-		BookingService service=new BookingService();  
-		Booking book=new Booking();
-		book.setCustomerid(Integer.parseInt(request.getParameter("customer")));
+		SaleService service=new SaleService();  
+		Sales sale= new Sales();
+		sale.setCustomerid(Integer.parseInt(request.getParameter("customer")));
 		try {
-			List<Booking>customerbooking=service.byCustomer(book);
-			if(customerbooking.isEmpty()) {
+			List<Sales>salesdata=service.getSalesbyID(sale);
+			if(salesdata.isEmpty()) {
 				message="Empty List";
 			}
-			request.setAttribute("customerbooking", customerbooking);
+			request.setAttribute("saledata", salesdata);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			message=e.getMessage();
 		} 
 		
 		request.setAttribute("message", message);
-		RequestDispatcher rd=request.getRequestDispatcher("all-booking-data.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("ConfirmOrders.jsp");
 		rd.forward(request, response);
 	}
 	

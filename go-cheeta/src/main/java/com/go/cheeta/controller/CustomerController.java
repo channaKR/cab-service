@@ -109,6 +109,7 @@ public class CustomerController extends HttpServlet {
 			
 			booking.setStart_Date(start_DateLocalDate );
 			booking.setEnd_Date(endt_DateLocalDate);
+			vehicle.setVehicle_Type(request.getParameter("vehicle_type"));
 			List<Vehicle>vehicleList=service.availableVehicle(booking, vehicle);
 			
 			if(vehicleList.isEmpty()) {
@@ -123,7 +124,7 @@ public class CustomerController extends HttpServlet {
 		request.setAttribute("message", message);
 		RequestDispatcher rd=request.getRequestDispatcher("available-vehicle.jsp");
 		rd.forward(request, response);
-	}
+	   }
 	
 	
 	private void bookingVehicle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

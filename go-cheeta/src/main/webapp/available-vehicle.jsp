@@ -104,7 +104,9 @@ a {
 }
 
 
-
+.type{ width: 100%;
+   
+}
 .card-img-tiles .thumblist>img {
     display: block;
     width: 100%;
@@ -151,9 +153,15 @@ if((String) session.getAttribute("user")==null){
 <input type="hidden" name="action" value="availableVehicles"/>
 
 <div class="fstrow">
-<div class="form-group"><input type="date"  class=" txt form-control addvehicle-input" name="startdate" id="startdate"  required>
+<div class="form-group">
+<input type="date"  class=" txt form-control addvehicle-input" name="startdate" id="startdate"  required>
 <input type="date"  class=" txt form-control addvehicle-input" name="enddate" id="enddate"   required>
-
+<select class="type form-select addvehicle-input" aria-label="Default select example" name="vehicle_type" required>
+  <option VALUE="">Type</option>
+  <option value="car">Car</option>
+  <option value="van">Van</option>
+  <option value="bus">Bus</option>
+</select>
 
  <button type="submit" class="searchbtn btn btn-light" >SEARCH</button> 
 </div>

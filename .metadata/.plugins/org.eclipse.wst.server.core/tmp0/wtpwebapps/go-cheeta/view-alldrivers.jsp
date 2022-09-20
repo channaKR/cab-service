@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<input type="hidden" name="drivernic" value="96512434v">
+
 <div class="d-flex" id="wrapper">
 <jsp:include page="admin-dashboard-side.jsp" />
 <div id="page-content-wrapper">
@@ -43,6 +43,7 @@
                                      <th scope="col">Conact</th>
                                      <th scope="col">email</th>
                                      <th scope="col">Vehicle ID</th>
+                                     <th scope="col" colspan="2">Action</th>
                                         
                                      
                                 </tr>
@@ -57,7 +58,18 @@
                                     <td>${ driver.getAddress()}</td>
                                     <td>${ driver.getContactnumber()}</td>
                                     <td>${ driver.getEmail()}</td>
-                                    <td>${ driver.getVehicleID()}</td>                        
+                                    <td>${ driver.getVehicleID()}</td>  
+                                    <td>
+                                    <form action="viewData" method="Post">
+                                    
+                                    <input type="hidden" name="vehicleids"  value="${ driver.getVehicleID()}">
+                                    <input type="hidden" name="action"  value="drivereditdata" >
+                                    
+                                    <button type="submit" class="btn btn-primary" >Edit</button>
+                                    </form>
+                                    </td>   
+                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                                                       
                                 </tr>
                         </tag:forEach>
                         </tbody>

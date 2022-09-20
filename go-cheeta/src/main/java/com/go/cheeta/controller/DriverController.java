@@ -33,6 +33,15 @@ public class DriverController extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");  
+		if(action.equals("driversdata")) {
+			   
+			   getAllDriver(request, response);
+		   }
+		 else if(action.equals("editdriver")) {
+				
+				getVehiclesWithoutDrivers(request, response,"edit-driver");
+			}
 		
 	}
 
@@ -58,6 +67,11 @@ public class DriverController extends HttpServlet {
 			   
 			   getDriverInfor(request,response);
 		   }
+		   else if(action.equals("drivereditdata")) {
+				viewbyID(request, response);
+			}
+			
+		  
 	}
 
 	
@@ -205,6 +219,79 @@ public class DriverController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
+	private void getAllDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		DriverClass driver=new DriverClass();
+		DriverService service=new DriverService();
+		try {
+			List<DriverClass>drivers=service.getAllDriversData();
+			if(drivers.isEmpty()) {
+				
+				message="No Driver Data";
+			}
+			request.setAttribute("driversdata", drivers);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+	}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-alldrivers.jsp");
+		rd.forward(request, response);
+	}
 	
+	private void getVehiclesWithoutDrivers(HttpServletRequest request, HttpServletResponse response,String webpage) throws ServletException, IOException {
+		
+		String message= "";
+		VehicleService service=new VehicleService();
+		Vehicle vehicle=new Vehicle();
+		try {
+			List<Vehicle>vehicles=service.getVehilcesWithoutDriver(vehicle);
+			if(vehicles.isEmpty()) {message="There's no any vehicles";}
+			
+			request.setAttribute("vehicleData",vehicles);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher(webpage+".jsp"); 
+		rd.forward(request, response);
+		
+		
+		
+	}
 	
+	private void viewbyID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		Vehicle vehicle=new Vehicle();
+		DriverService driverservice=new DriverService();
+		VehicleService service=new VehicleService();
+		Vehicle available=new Vehicle();
+		VehicleService dropdown=new VehicleService();
+		
+		vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+		try {
+			List<Vehicle>getvehicledata=service.getVehilcesWithoutDriver(available);
+			DriverClass driver=driverservice.getDriverInformation(vehicle);
+			Vehicle dropdata=service.getTheVehicleByVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+			
+			
+			if(driver==null) {
+				message="Empty";
+				
+			}
+			request.setAttribute("vehicleData",getvehicledata);
+			request.setAttribute("datadriver",driver);
+			request.setAttribute("dropdown", dropdata);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("edit-driver.jsp");
+		rd.forward(request, response);
+	}
+
 }

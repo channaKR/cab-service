@@ -25,12 +25,15 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.web.app"/>
 			<item value="go_cheeta"/>
 		</list>
 		<list key="groupId">
+			<item value="cab-web"/>
 			<item value="go-cheeta"/>
 		</list>
 		<list key="artifactId">
+			<item value="cab-web"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -46,12 +49,10 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="go-cheeta"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="go-cheeta"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

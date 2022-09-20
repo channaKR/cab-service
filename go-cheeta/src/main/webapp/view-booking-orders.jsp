@@ -29,9 +29,9 @@
              
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3"><b>Vehicles</b><br>
-                   
-                       </h3>
+                    <h3 class="fs-4 mb-3"><b>Vehicles</b><br></h3>
+                    <label style="font-weight:bold;">Driver Name:<%= session.getAttribute("dname") %></label><br>
+                        	     <label style="font-weight:bold;">Vehicle Model:<%= session.getAttribute("vmodel") %></label>
                       <p>${message}</p>
                     <div class="col">
                         <table class=" table bg-white shadow-lg p-3 mb-5 bg-white rounded bg-transparent text-dark table-hover">
@@ -47,6 +47,7 @@
                                         <th scope="col">Customer ID</th>
                                          <th scope="col">Full Coast</th>
                                       <th scope="col">Confirm</th>
+                                     <th scope="col" colspan="2">View Information</th>
                                      
                                 </tr>
                            </thead>
@@ -76,27 +77,21 @@
                                  
                                  
                                  </td>
+                                 <td><form action="WebController" Method="post">
+                                 <input type="hidden" name="vehicleids" value="${order.getVehicle_ID()}">
+                                 <input type="hidden" name="action" value="getdriver">
+                                 <button class="btnedit btn btn-primary">Driver</button>
+                                 </form>
                                  
+                                 </td>
+                                 <td><button class="btnedit btn btn-primary">Vehicle</button></td>
                                  </tr>
-                                 
-                                 
-                                 
-                                 
-                                 
                                  </tag:forEach>
-                                
-                                
-                                
-                                
-                                
-                                
                                 </tbody>
-                        
-                        
-                        
-                        </table>
-                        
-                       
+                        		</table>
+                        		
+                        	
+                       			
                     </div>
                 </div>
 

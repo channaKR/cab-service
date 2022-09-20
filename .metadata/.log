@@ -4688,3 +4688,675 @@ java.lang.Exception: Resource already exists on disk: '/go-cheeta/target/classes
 	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:161)
 	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:255)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2022-09-20 01:53:01.360
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package com.go.cheeta.controller;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.*;
+
+import javax.mail.MessagingException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.go.cheeta.model.*;
+import com.go.cheeta.service.*;
+
+public class WebController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 String action=request.getParameter("action");
+		   if(action.equals("all")) {
+			   viewVehicle(request,response);
+			   
+		   }
+		   else if(action.equals("withoutDriver")) {
+			   
+			   getVehiclesWithoutDrivers(request,response);
+		   }
+		   
+		   else if(action.equals("viewallsale")) {
+			   
+			   getSales(request,response);
+			   
+		   }
+		   else if(action.equals("branchtot")) {
+				
+			   searchTotal(request,response);
+			   
+			}
+		   else if(action.equals("viewOrders")) {
+			   
+			   viewOrders(request, response);
+		   }
+		   else if(action.equals("alldrivers")) {
+			   
+			   getAllDriver(request, response);
+		   }
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");
+		if(action.equals("addVehicle")) {
+			addVehicle(request, response);
+		}
+		
+		else if(action.equals("deleteVehicle")) {
+			deleteVehicle(request, response);
+		}
+		
+		else if(action.equals("editVehicle")) {
+			viewVehicleByID(request, response);
+		}
+		else if(action.equals("updateVehicle")) {
+			
+			UpdateVehicle(request, response);
+	 }
+		
+		else if(action.equals("addDriver")) {
+			
+			addDriver(request, response);
+			
+		}
+		else if(action.equals("getdriver")) {
+			viewOrders(request, response);
+		}
+		
+	}
+	
+	
+	private void addVehicle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		String message= "";
+		VehicleService service= new VehicleService();
+		Vehicle vehicle=new Vehicle();
+		vehicle.setVehicle_Registernumber(request.getParameter("register_Number"));
+		vehicle.setVehicle_Model(request.getParameter("vehicle_Model"));
+		vehicle.setNumberof_Seat(Integer.parseInt(request.getParameter("vehicle_Seat")));
+		vehicle.setVehicle_Type(request.getParameter("vehicle_type"));
+		vehicle.setCostper_Km(Double.parseDouble(request.getParameter("costPer_Km")));
+		vehicle.setBranch(request.getParameter("branch"));
+		boolean result;
+		try {
+			result = service.addVehicle(vehicle);
+			if(result) {
+				message=vehicle.getVehicle_Model()+" "+"Add To The System";
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			message=e.getMessage();
+		}
+		
+		
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("add-vehicle.jsp");
+		rd.forward(request, response);
+	}
+	
+	private void viewVehicle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		VehicleService service=new VehicleService();
+		DriverClass driverdata=new DriverClass();
+		DriverService driverservice=new DriverService();
+		
+		try {
+			List<Vehicle>vehicles=service.viewAllVehicle();
+			
+			
+			if(vehicles.isEmpty()) {
+				 message="There's no any vehicles";
+
+			}
+			request.setAttribute("vehicleData",vehicles);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-view-vehicles.jsp"); 
+		rd.forward(request, response);
+		
+		
+	}
+
+	
+	private void deleteVehicle(HttpServletRequest request, HttpServletResponse response) throws IOException   {
+		String message= "";
+		VehicleService service= new VehicleService();
+		int vehicleID= Integer.parseInt(request.getParameter("vehicleID"));
+		try {
+			boolean result=service.deleteProduct(vehicleID);
+			if(result) {
+				
+				message="The product Deleted";
+				
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+
+		}
+		
+		request.setAttribute("message", message);
+		HttpSession session=request.getSession();
+		session.setAttribute("deleteMessage", message);
+		response.sendRedirect("/go-cheeta/viewVehicle?action=all");
+		
+	}
+	
+	
+	private void viewVehicleByID(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		String message= "";
+		VehicleService service=new VehicleService();
+		int vehicleID= Integer.parseInt(request.getParameter("vehicleID"));
+		Vehicle vehicle= new Vehicle();
+		
+		try {
+			vehicle=service.getTheVehicleByVehicleID(vehicleID);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			message=e.getMessage();
+		}
+		
+		   request.setAttribute("message", message);
+		   request.setAttribute("vehicle",vehicle);
+		   RequestDispatcher rd=request.getRequestDispatcher("admin-update-vehicle.jsp");
+		   rd.forward(request, response);
+	}
+	
+	private void UpdateVehicle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{   String message= "";
+	VehicleService service= new VehicleService();
+	Vehicle vehicle=new Vehicle();
+	int vehicleID= Integer.parseInt(request.getParameter("vehicleID"));
+	vehicle.setVehicleID(vehicleID);
+	vehicle.setVehicle_Registernumber(request.getParameter("register_Number"));
+	vehicle.setVehicle_Model(request.getParameter("vehicle_Model"));
+	vehicle.setNumberof_Seat(Integer.parseInt(request.getParameter("vehicle_Seat")));
+	vehicle.setVehicle_Type(request.getParameter("vehicle_type"));
+	vehicle.setCostper_Km(Double.parseDouble(request.getParameter("costPer_Km")));
+	vehicle.setBranch(request.getParameter("branch"));
+	boolean result;
+	try {
+		result = service.updateVehicle(vehicle);
+		if(result) {
+			message="Update Successfully";
+		}
+	} catch (ClassNotFoundException | SQLException e) {
+		
+		message=e.getMessage();
+	}
+	
+	
+	request.setAttribute("message", message);
+	response.sendRedirect("/go-cheeta/viewVehicle?action=all");
+	
+	}
+	
+	private void getVehiclesWithoutDrivers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String message= "";
+		VehicleService service=new VehicleService();
+		Vehicle vehicle=new Vehicle();
+		try {
+			List<Vehicle>vehicles=service.getVehilcesWithoutDriver(vehicle);
+			if(vehicles.isEmpty()) {
+				 message="There's no any vehicles";
+				 
+				 
+				 
+
+			}
+			request.setAttribute("vehicleData",vehicles);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("add-driver.jsp"); 
+		rd.forward(request, response);
+		
+		
+		
+	}
+	
+	
+	private void addDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		String message= "";
+		DriverService service=new DriverService();
+		Vehicle vehicle=new Vehicle();
+		DriverClass driver=new DriverClass();
+		Account account=new Account();
+		
+		vehicle.setVehicleID(Integer.parseInt(request.getParameter("model")));
+		driver.setDrivername(request.getParameter("dname"));
+		driver.setNicnumber(request.getParameter("nic"));
+		driver.setAddress(request.getParameter("address"));
+		driver.setContactnumber(request.getParameter("contact"));
+		account.setEmail(request.getParameter("email"));
+		account.setPassword(request.getParameter("password"));
+		account.setRoll("driver");
+		boolean result;
+		try {
+			result = service.addDriver(vehicle, driver, account);
+			if(result) {
+				message="Add To The System";
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			message=e.getMessage();
+		}
+		
+		
+		request.setAttribute("message",message);
+		
+		response.sendRedirect("/go-cheeta/viewVehicle?action=withoutDriver");
+		
+	}
+	
+	private void getSales(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		SaleService service=new SaleService();
+		
+		
+		
+		try {
+			List<Sales>sale=service.searchByBranch();
+			
+		
+			if(sale.isEmpty()) {
+				
+				message="Sorry No sales";
+			}
+			request.setAttribute("saleData",sale);
+			
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		getTotal(request, response);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		
+		rd.forward(request, response);
+		
+	}
+	
+	private void getTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		SaleService service=new SaleService();
+		
+		try {
+			Sales sale=service.allCoast();
+			request.setAttribute("tot",sale);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		
+		rd.forward(request, response);
+		
+	}
+
+	private void searchTotal(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SaleService service=new SaleService();
+		String message= "";
+		String searchbydate=request.getParameter("date");
+		LocalDate date = LocalDate.parse (searchbydate);
+		Sales searchdata=new Sales();
+		searchdata.setDate(date);
+		searchdata.setBranch(request.getParameter("branch"));
+		
+		try {
+			List<Sales>saletotal=service.searchBranchSales(searchdata);
+			if(saletotal.isEmpty()) {
+				
+				message="Sales Not available";
+				
+			}
+			
+			HttpSession session=request.getSession();
+			
+			session.setAttribute("branchsearch", saletotal);
+			
+			
+			//getSales(request,response);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message",message);
+		RequestDispatcher rd=request.getRequestDispatcher("admin-dashboard.jsp"); 
+		rd.forward(request, response);
+		
+		request.setAttribute("message",message);
+	    
+	}
+	
+	private void viewOrders(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String message= "";
+		BookingService service=new BookingService();
+		Booking booking=new Booking();
+		
+		
+		try {
+			
+			if(request.getParameter("vehicleids")!=null) {
+				Vehicle vehicle=new Vehicle();
+				VehicleService vehicleservice=new VehicleService();
+				vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+				DriverService driverservice=new DriverService();
+				DriverClass driverinfor=new DriverClass();
+				vehicle=vehicleservice.getTheVehicleByVehicleID(Integer.parseInt(request.getParameter("vehicleids")))
+				driverinfor=driverservice.getDriverInformation(vehicle);
+				HttpSession session=request.getSession();
+				session.setAttribute=request.getSession("",)
+				session.setAttribute("dname",driverinfor.getDrivername() );
+				session.setAttribute("dcontact",driverinfor.getContactnumber() );
+				
+			}
+			
+			
+		
+			List<Booking>orders=service.getAllBooking();
+			if(orders.isEmpty()) {
+				message="No orders found";
+				
+			}
+			request.setAttribute("viewAllBooking", orders);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+		}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-booking-orders.jsp");
+		rd.forward(request, response);
+	}
+	
+	private void getAllDriver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		DriverClass driver=new DriverClass();
+		DriverService service=new DriverService();
+		try {
+			List<DriverClass>drivers=service.getAllDriversData();
+			if(drivers.isEmpty()) {
+				
+				message="No Driver Data";
+			}
+			request.setAttribute("driversdata", drivers);
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.getMessage();
+	}
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("view-alldrivers.jsp");
+		rd.forward(request, response);
+	}
+	
+	private void getBoodrivervehiclename(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		Vehicle vehicle=new Vehicle();
+		vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+		DriverService service=new DriverService();
+		DriverClass driverinfor=new DriverClass();
+		
+		try {
+			driverinfor=service.getDriverInformation(vehicle);
+			HttpSession session=request.getSession();
+			session.setAttribute("drsivername",driverinfor.getDrivername() );
+			session.setAttribute("dcontact",driverinfor.getContactnumber() );
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+		message=e.getMessage();
+		}
+	
+		request.setAttribute("message", message);
+		RequestDispatcher rd=request.getRequestDispatcher("inforcard.jsp");
+		rd.forward(request, response);
+	}
+	
+}
+
+
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3853)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3095)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2022-09-20 01:53:01.701
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3853)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3095)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2022-09-20 01:53:01.701
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3853)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3095)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3390)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:540)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:06.608
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:06.612
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:07.464
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:07.468
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 failed to transfer from https://repo.maven.apache.org/maven2 during a previous attempt. This failure was cached in the local repository and resolution is not reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 from/to central (https://repo.maven.apache.org/maven2): repo.maven.apache.org
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:08.985
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-09-20 01:54:08.989
+!MESSAGE Failed to retrieve plugin descriptor for org.apache.maven.plugins:maven-clean-plugin:3.1.0: Plugin org.apache.maven.plugins:maven-clean-plugin:3.1.0 or one of its dependencies could not be resolved: Cannot access central (https://repo.maven.apache.org/maven2) in offline mode and the artifact org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0 has not been downloaded from it before.
+!SESSION 2022-09-20 11:05:07.558 -----------------------------------------------
+eclipse.buildId=4.24.0.I20220607-0700
+java.version=17.0.4
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.jface 2 0 2022-09-20 11:05:23.954
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-09-20 11:05:23.954
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@24ae2183,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5b697993,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-09-20 11:05:23.954
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7ffb0bb4,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@280f061e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2022-09-20 11:05:49.494
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Potato'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2022-09-20 11:05:55.331
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2022-09-20 11:06:31.468
+!MESSAGE Several ports (8085, 8080) required by Tomcat v9.0 Server at localhost are already in use. The server may already be running in another process, or a system process may be using the port. To start this server you will need to stop the other process or change the port number(s).

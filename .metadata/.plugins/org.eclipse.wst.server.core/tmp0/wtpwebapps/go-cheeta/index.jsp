@@ -23,7 +23,9 @@
 <jsp:include page="home-page-navbar.jsp"/>
 <div class="bg"></div>
 
+<tag:forEach var="order" items="${saledata}">
 
+</tag:forEach>
 </body>
 
 </html>
