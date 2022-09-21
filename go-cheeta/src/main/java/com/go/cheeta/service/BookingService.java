@@ -14,7 +14,7 @@ public class BookingService {
 		
 	}
 	
-	public static List<Booking> byCustomer(Booking booking) throws ClassNotFoundException, SQLException{
+	public  List<Booking> byCustomer(Booking booking) throws ClassNotFoundException, SQLException{
 		
 		return BookingManager.byCustomer(booking);
 	}
