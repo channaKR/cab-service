@@ -27,12 +27,22 @@
                <i class="fas fa-shipping-fast"></i> Add Driver Data</a>
                <a href="/go-cheeta/salesData?action=viewOrders" class="list-group-item list-group-item-action bg-transparent second-text active">
                <i class="fas fa-atom"></i> View Booking</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+               <form action="logout" method="post" id="logout">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onclick="logout()"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
+                        <input type="hidden" name="action" value="logout">
+               </form>
             </div>
         </div>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="javascript/script-dashboard.js"></script>  
+<script>
+function logout() {
+	document.getElementById("logout").submit();
+	}
+
+</script>
+
 </body>
 
 </html>

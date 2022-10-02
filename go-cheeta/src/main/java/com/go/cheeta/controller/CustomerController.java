@@ -172,7 +172,7 @@ public class CustomerController extends HttpServlet {
 		Customer customer=new Customer();
 		account.setEmail(request.getParameter("email"));
 		account.setPassword(request.getParameter("password"));
-
+		
 		CustomerService service=new CustomerService();
 		try {
 			Customer result=service.login(account, customer);
@@ -231,6 +231,5 @@ public class CustomerController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
-	
-	
+
 }

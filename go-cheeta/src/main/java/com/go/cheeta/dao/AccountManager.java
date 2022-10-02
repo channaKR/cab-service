@@ -73,6 +73,26 @@ public class AccountManager {
 		
 }
 	
+public static Account adminLogin(Account login) throws ClassNotFoundException, SQLException {
+	DbConnector connector=new DbConnectorSQL();
+	Connection connection = connector.getConnection();
+	String query="SELECT email FROM gocheeta.login where email=? and password=? and roll='admin'";
+	PreparedStatement ps=connection.prepareStatement(query);
+	ps.setString(1, login.getEmail());
+	ps.setString(2, login.getPassword());
+	ResultSet rs=ps.executeQuery();
+	Account lg=new Account();
+	if(rs.next()) {
+		
+		lg.setEmail(rs.getString("email"));
+		
+	}
+	ps.close();
+	connection.close();
+	return lg;
+	
+}
+	
 	
 	public static DriverClass DriverLogin(Account login,DriverClass driver) throws ClassNotFoundException, SQLException {
 		DbConnector connector = new DbConnectorSQL();
@@ -114,5 +134,6 @@ public class AccountManager {
 		connection.close();
 		return result;
 	}
+	
 	
 }

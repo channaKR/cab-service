@@ -77,6 +77,14 @@ public class WebController extends HttpServlet {
 		else if(action.equals("getdriver")) {
 			viewOrders(request, response);
 		}
+		else if(action.equals("adminlogin")) {
+			addminlogin(request, response);
+		}
+		
+		if(action.equals("logout")) {
+			adminlogout(request, response);
+			
+		}
 		
 	}
 	
@@ -414,7 +422,47 @@ public class WebController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
-
+	private void addminlogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String message= "";
+		Account account=new Account();
+		
+		account.setEmail(request.getParameter("user_email"));
+		account.setPassword(request.getParameter("user_password"));
+		
+		AccountService service=new AccountService();
+		try {
+			Account result=service.adminLogin(account);
+			if(result.getEmail()==null) {
+				message="Invalid Login.Please Cheack Your Data";
+				request.setAttribute("message", message);
+				RequestDispatcher rd=request.getRequestDispatcher("admin-login.jsp");
+				rd.forward(request, response);
+			}
+			else if(result.getEmail()!=null) {
+				HttpSession session=request.getSession();
+				
+				session.setAttribute("useremail", result.getEmail());
+			
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			message=e.toString();
+		}
+		request.setAttribute("message", message);
+		response.sendRedirect("/go-cheeta/salesData?action=viewallsale");
+		
+		
+		}
+	
+	private void adminlogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session=request.getSession();
+		session.invalidate();
+		RequestDispatcher rd=request.getRequestDispatcher("admin-login.jsp");
+		rd.forward(request, response);
+		
+	}
+	
 	
 	
 }

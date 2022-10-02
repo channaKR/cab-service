@@ -35,7 +35,14 @@ display: flex;
 </style>
 </head>
 <body>
-<h1>${message}</h1>
+<%
+
+if((String) session.getAttribute("useremail")==null){
+	
+	response.sendRedirect("admin-login.jsp");
+}
+%>
+<h3>${message}</h3>
 <div class="d-flex" id="wrapper">
 
 <jsp:include page="admin-dashboard-side.jsp" />

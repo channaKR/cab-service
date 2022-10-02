@@ -52,7 +52,10 @@ if((String) session.getAttribute("user")==null){
                        </h3>
                       <p>${message}</p>
                     <div class="col">
+                    <h4 style="color:orange;"></h4>
+                      <form action="addCommnet" method="post">
                         <table class=" table bg-white shadow-lg p-3 mb-5 bg-white rounded  text-dark table-hover">
+                      
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">ID</th>
@@ -80,11 +83,14 @@ if((String) session.getAttribute("user")==null){
                                  <td>${order.getDate()}</td>
                                
                                  <td>
-                                 <textarea rows="2" cols="12"></textarea>
+                                 <textarea rows="2" cols="12" name="comment" >${message}</textarea>
+                                 
                                  </td>
                                  <td>
-                                 
-                                 <button class="btn btn-primary " type="submit"><i class="bi bi-telephone"></i> Add Comment</button>
+                                  <input type="hidden" name="orderid" value="${order.getOrderid()}"/>
+                                    <input type="hidden" name="customer" value="<%=session.getAttribute("customerid")%>">
+                                  <input type="hidden" name="action" value="addComment">
+                                 <button type="submit" class="btn btn-primary " ><i class="bi bi-telephone"></i> Add Comment</button>
                                  </td>
                                  </tr>
                                  
@@ -101,16 +107,24 @@ if((String) session.getAttribute("user")==null){
                                 
                                 </tbody>
                         
-                        
-                        
+                       
+                      
                         </table>
                         
-                       
+                       </form>
+                     
                     </div>
                 </div>
 </div>
 
+  <script type="text/javascript">
   
+  function submitcomment() {
+		document.getElementById("addComment").submit();
+		alert("message sent successfully");
+		}
+  
+  </script>
                                  
 </body>
 </html>

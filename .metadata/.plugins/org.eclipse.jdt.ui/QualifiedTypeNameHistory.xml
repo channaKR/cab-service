@@ -10,8 +10,6 @@
     <fullyQualifiedTypeName name="com.go.cheeta.service.VehicleService"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
     <fullyQualifiedTypeName name="org.javatuples.Pair"/>
-    <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="com.go.cheeta.model.Vehicle"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.DriverClass"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.DriversManager"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.User"/>
@@ -22,7 +20,6 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="com.google.api.client.googleapis.auth.oauth2.GoogleCredential"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.Account"/>
-    <fullyQualifiedTypeName name="com.go.cheeta.dao.AccountManager"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.Sales"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.SaleManager"/>
     <fullyQualifiedTypeName name="java.lang.Double"/>
@@ -30,7 +27,6 @@
     <fullyQualifiedTypeName name="org.apache.tomcat.jni.Time"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.BookingManager"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
-    <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
     <fullyQualifiedTypeName name="com.web.app.dao.DriverDb"/>
     <fullyQualifiedTypeName name="com.web.app.model.DriverData"/>
     <fullyQualifiedTypeName name="com.web.app.service.DriverServices"/>
@@ -41,8 +37,6 @@
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="com.mysql.cj.protocol.Resultset"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.web.app.dao.CustomerDb"/>
     <fullyQualifiedTypeName name="com.web.app.model.CustomerData"/>
     <fullyQualifiedTypeName name="com.web.app.service.CustomerServices"/>
@@ -55,4 +49,13 @@
     <fullyQualifiedTypeName name="com.go.cheeta.model.Booking"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.SaleService"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.Sales"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Vehicle"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.AccountManager"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.CommentService"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.dao.CommentManager"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.model.Comment"/>
 </qualifiedTypeNameHistroy>
