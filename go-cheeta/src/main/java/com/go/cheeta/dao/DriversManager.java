@@ -1,5 +1,6 @@
 package com.go.cheeta.dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,11 +10,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.go.cheeta.model.Account;
 import com.go.cheeta.model.Booking;
 import com.go.cheeta.model.DriverClass;
 import com.go.cheeta.model.Sales;
 import com.go.cheeta.model.Vehicle;
+import com.go.cheeta.service.DriverService;
+import com.go.cheeta.service.VehicleService;
 
 public class DriversManager {
 	public static boolean addDriver(Vehicle vehicle,DriverClass driver ,Account account) throws ClassNotFoundException, SQLException {
@@ -127,4 +134,22 @@ public class DriversManager {
 	 
 	 
  }
+	
+	
+	 public static boolean deleteDriver(String id) throws ClassNotFoundException, SQLException {
+		 	DbConnector connector =new DbConnectorSQL();
+			Connection connection = connector.getConnection();
+			
+			String query = "DELETE FROM driver WHERE drivernic=?";
+			PreparedStatement ps = connection.prepareStatement(query);
+			ps.setString(1, id);
+			
+			boolean result = ps.executeUpdate() > 0 ;
+			ps.close();
+			connection.close();
+			return result;
+		 
+	 }
+	 
+	
 }

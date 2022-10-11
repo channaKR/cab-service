@@ -110,13 +110,15 @@ public class VehicleManager {
 		public static List<Vehicle> searchBookingVehicle(Booking booking,Vehicle vehicle) throws ClassNotFoundException, SQLException {
 			DbConnector connector =new DbConnectorSQL();
 			Connection connection = connector.getConnection();
-			String query = "SELECT DISTINCT vehicleid,model,seat,type,kmcost  FROM vehicle LEFT JOIN booking ON vehicleid = vid WHERE NOT (startdate>=? AND enddate<=?  OR enddate>=? AND  startdate<=?) and type=?";
+			//String query = "SELECT DISTINCT vehicleid,model,seat,type,kmcost  FROM vehicle LEFT JOIN booking ON vehicleid = vid WHERE NOT (startdate>=? AND enddate<=?  OR enddate>=? AND  startdate<=?) and type=? OR startdate IS NULL";
+			String query="SELECT  vehicleid,model,seat,type,kmcost,startdate  FROM vehicle LEFT JOIN booking ON  vehicleid = vid AND (startdate IS NULL) WHERE type=?";
 			PreparedStatement ps=connection.prepareStatement(query);
-			   ps.setString(1, booking.getStart_Date().toString());
+			    /*ps.setString(1, booking.getStart_Date().toString());
 				ps.setString(2, booking.getEnd_Date().toString());
 				ps.setString(3, booking.getEnd_Date().toString());
 				ps.setString(4,booking.getStart_Date().toString() );
-				ps.setString(5,vehicle.getVehicle_Type());
+				ps.setString(5,vehicle.getVehicle_Type());*/
+				ps.setString(1,vehicle.getVehicle_Type());
 			    ResultSet rs=ps.executeQuery();
 			
 			//ResultSet rs=ps.executeQuery(query);

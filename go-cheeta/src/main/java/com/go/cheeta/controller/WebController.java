@@ -375,15 +375,21 @@ public class WebController extends HttpServlet {
 			if(request.getParameter("vehicleids")!=null) {
 				Vehicle vehicle=new Vehicle();
 				VehicleService vehicleservice=new VehicleService();
+				Customer customer=new Customer();
+				customer.setCustomer_ID(Integer.parseInt(request.getParameter("customerid")));
+				CustomerService customerservice=new CustomerService();
 				vehicle.setVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
+				
 				DriverService driverservice=new DriverService();
 				DriverClass driverinfor=new DriverClass();
 				vehicle=vehicleservice.getTheVehicleByVehicleID(Integer.parseInt(request.getParameter("vehicleids")));
 				driverinfor=driverservice.getDriverInformation(vehicle);
+				Customer cs=customerservice.getCustomerbyID(customer);
 				HttpSession session=request.getSession();
 				session.setAttribute("vmodel", vehicle.getVehicle_Model());
 				session.setAttribute("dname",driverinfor.getDrivername() );
 				session.setAttribute("dcontact",driverinfor.getContactnumber() );
+				session.setAttribute("customer", cs.getCustomername1()+" "+ cs.getCustomername2());
 				
 			}
 			List<Booking>orders=service.getAllBooking();

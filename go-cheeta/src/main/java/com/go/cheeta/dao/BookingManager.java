@@ -14,8 +14,8 @@ public class BookingManager {
 	public static boolean bookVehicle(Booking booking,Vehicle vehicle,Customer customer,DriverClass driver) throws ClassNotFoundException, SQLException {
 		DbConnector connector = new DbConnectorSQL();
 		Connection connection = connector.getConnection();
-		String query="INSERT INTO booking (startdate,enddate,branch,location,km,vid,customerid,fullcost,confirm) VALUES "+
-		"(?,?,?,?,?,?,?,?,0) ";
+		String query="INSERT INTO booking (startdate,enddate,branch,location,km,vid,customerid,fullcost,confirm,fromlocation,fromadress) VALUES "+
+		"(?,?,?,?,?,?,?,?,0,?,?) ";
 		PreparedStatement ps = connection.prepareStatement(query);
 		ps.setString(1,booking.getStart_Date().toString() );
 		ps.setString(2,booking.getEnd_Date().toString() );
@@ -25,6 +25,8 @@ public class BookingManager {
 		ps.setInt(6, vehicle.getVehicleID());
 		ps.setInt(7, customer.getCustomer_ID());
 		ps.setDouble(8, booking.getCostfor_vehicle());
+		ps.setString(9, booking.getFromlocation());
+		ps.setString(10, booking.getFromlocation());
 		boolean result = ps.executeUpdate() > 0 ;
 		ps.close();
 		connection.close();
@@ -62,7 +64,7 @@ public class BookingManager {
 		DbConnector connector =new DbConnectorSQL();
 		Connection connection = connector.getConnection();
 		
-		String query="SELECT booking.customerid,booking.bookingid,booking.startdate,booking.enddate,booking.location,booking.confirm,booking.vid,"+
+		String query="SELECT booking.customerid,booking.bookingid,booking.startdate,booking.enddate,booking.location,fromlocation,fromadress,booking.confirm,booking.vid,"+
 		"branch,km,fullcost FROM booking LEFT JOIN driver ON"+
 				" booking.vid=driver.vid where drivernic=?";
 		PreparedStatement ps=connection.prepareStatement(query);
@@ -85,6 +87,8 @@ public class BookingManager {
 	    	bookingData.setCostfor_vehicle(rs.getDouble("fullcost"));
 	    	bookingData.setConfirm(rs.getInt("confirm"));
 	    	bookingData.setVehicle_ID(rs.getInt("vid"));
+	    	bookingData.setFromlocation(rs.getString("fromlocation"));
+	    	bookingData.setFromaddress(rs.getString("fromadress"));
 	    	vehiclebook.add(bookingData);
 	    }
 	   
@@ -139,7 +143,7 @@ public class BookingManager {
     		String endDate=rs.getString("enddate");
     		LocalDate start_DateLocalDate = LocalDate.parse (startDate);
     		LocalDate endt_DateLocalDate = LocalDate.parse (endDate);
-		bookingData.setCustomerid(rs.getInt("customerid"));
+    		bookingData.setCustomerid(rs.getInt("customerid"));
     		bookingData.setBooking_ID(rs.getInt("bookingid"));
     		bookingData.setStart_Date(start_DateLocalDate);
     		bookingData.setEnd_Date(endt_DateLocalDate);
@@ -149,6 +153,9 @@ public class BookingManager {
     		bookingData.setCostfor_vehicle(rs.getDouble("fullcost"));
     		bookingData.setConfirm(rs.getInt("confirm"));
     		bookingData.setVehicle_ID(rs.getInt("vid"));
+    		bookingData.setFromlocation(rs.getString("fromlocation"));
+    		bookingData.setFromaddress(rs.getString("fromadress"));
+    		
     		bookingdata.add(bookingData);
 			
 		};

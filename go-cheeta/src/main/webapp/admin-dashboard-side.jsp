@@ -25,8 +25,11 @@
                <i class="bi bi-laptop-fill"></i>  View Vehicles</a>
                  <a href="/go-cheeta/loadVehicle?action=withoutDriver" class="list-group-item list-group-item-action bg-transparent second-text active">
                <i class="fas fa-shipping-fast"></i> Add Driver Data</a>
+               <a href="/go-cheeta/WebController?action=alldrivers" class="list-group-item list-group-item-action bg-transparent second-text active">
+               <i class="fas fa-atom"></i> View Drivers</a>
                <a href="/go-cheeta/salesData?action=viewOrders" class="list-group-item list-group-item-action bg-transparent second-text active">
                <i class="fas fa-atom"></i> View Booking</a>
+               
                <form action="logout" method="post" id="logout">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onclick="logout()"><i
                         class="fas fa-power-off me-2"></i>Logout</a>

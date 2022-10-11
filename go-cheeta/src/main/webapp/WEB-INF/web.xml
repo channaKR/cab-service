@@ -135,6 +135,10 @@
    	<url-pattern>/deleteData</url-pattern>
    </servlet-mapping>
    <servlet-mapping>
+   	<servlet-name>DriverController</servlet-name>
+   	<url-pattern>driverLogout</url-pattern>
+   </servlet-mapping>
+   <servlet-mapping>
    	<servlet-name>SaleController</servlet-name>
    	<url-pattern>/saledata</url-pattern>
    </servlet-mapping>

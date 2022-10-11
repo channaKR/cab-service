@@ -14,7 +14,13 @@
 
 </head>
 <body>
+<%
 
+if((String) session.getAttribute("useremail")==null){
+	
+	response.sendRedirect("admin-login.jsp");
+}
+%>
 <div class="d-flex" id="wrapper">
 
 <jsp:include page="admin-dashboard-side.jsp" />

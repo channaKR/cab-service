@@ -35,4 +35,8 @@ public class CustomerService implements User {
 	 public  Customer login(Account login,Customer customer) throws ClassNotFoundException, SQLException {
 		return AccountManager.Login(login, customer);
 	}
+	 
+	 public Customer getCustomerbyID(Customer customer) throws ClassNotFoundException, SQLException {
+		 return AccountManager.getCustomerbyID(customer);
+	 }
 }

@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+locationorg.eclipse.jst.server.tomcat.runtime.100=C\:/Program Files (x86)/Apache Software Foundation/apache-tomcat-10.0.27
+locationorg.eclipse.jst.server.tomcat.runtime.85=C\:/Program Files/apache-tomcat-8.5.83
 locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/Program Files (x86)/Apache Software Foundation/Tomcat 9.0

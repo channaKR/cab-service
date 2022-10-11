@@ -102,11 +102,11 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
  <div class="d-flex justify-content-center cent">
    <form action="bookingVehicle" method="post">
    
-   <div class="head-data">BOOKING ORDER</div>
+   <div class="head-data">BOOKING Vehicle</div>
 
   <div class="row-web">
  <select class="form-select form-group" aria-label="Default select example" name="branch" required>
-  <option VALUE=""><b>Select City</b></option>
+  <option VALUE=""><b>Selelect City (TO)</b></option>
   <option value="galle">Galle</option>
   <option value="kandy">Kandy</option>
   <option value="nugegoda">Nugegoda</option>
@@ -120,6 +120,22 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
   
   <div class="row-web">
    <textarea  type="email" rows="4" placeholder="Location" name="location" required ></textarea>
+ </div><br>
+  <div class="row-web">
+ <select class="form-select form-group" aria-label="Default select example" name="frombranch" required>
+  <option VALUE=""><b>Selelect City (From)</b></option>
+  <option value="galle">Galle</option>
+  <option value="kandy">Kandy</option>
+  <option value="nugegoda">Nugegoda</option>
+  <option value="gampaha">Gampaha</option>
+  <option value="kurunegala">Kurunegala</option>
+    <option value="jaffna">Jaffna</option>
+
+</select>
+ 
+  </div><br>
+  <div class="row-web">
+   <textarea  rows="4" placeholder="From Adress" name="fromad" required ></textarea>
  </div><br>
 
    <div class="row-data spc">
@@ -136,9 +152,9 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
            <input type="number" class="form-group km" placeholder="KM" min="5" name="km"  required/>
     
  </div><br><input type="hidden" name="action" value="bookingvehicle">
- <input type="text" name="ID" value="<%= session.getAttribute("ID") %>">
-  <input type="text" name="customid" value="<%= session.getAttribute("customerid") %>">
- <input type="text" name="costkm" value="<%= session.getAttribute("cost") %>">
+ <input type="hidden" name="ID" value="<%= session.getAttribute("ID") %>">
+  <input type="hidden" name="customid" value="<%= session.getAttribute("customerid") %>">
+ <input type="hidden" name="costkm" value="<%= session.getAttribute("cost") %>">
  <div class="d-flex justify-content-center">
  
  <div class="row-button">
@@ -148,7 +164,7 @@ if((String) session.getAttribute("user")==null&&session.getAttribute("customerid
  
    </form>
    
-   
+   <h1>${message}</h1>
    
  </div>
  

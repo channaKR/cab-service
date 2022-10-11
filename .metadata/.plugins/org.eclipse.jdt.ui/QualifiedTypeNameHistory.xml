@@ -13,7 +13,6 @@
     <fullyQualifiedTypeName name="com.go.cheeta.model.DriverClass"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.DriversManager"/>
     <fullyQualifiedTypeName name="com.go.cheeta.service.User"/>
-    <fullyQualifiedTypeName name="com.go.cheeta.service.DriverService"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="com.google.api.client.json.JsonFactory"/>
@@ -58,4 +57,5 @@
     <fullyQualifiedTypeName name="com.go.cheeta.service.CommentService"/>
     <fullyQualifiedTypeName name="com.go.cheeta.dao.CommentManager"/>
     <fullyQualifiedTypeName name="com.go.cheeta.model.Comment"/>
+    <fullyQualifiedTypeName name="com.go.cheeta.service.DriverService"/>
 </qualifiedTypeNameHistroy>

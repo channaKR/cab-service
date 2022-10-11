@@ -17,7 +17,7 @@
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i class="fas fa-car"></i> Go Cheeta </div>
             <div class="list-group list-group-flush my-3">
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text active"><i
-                        class="fas fa-tachometer-alt me-2"></i> Admin Dashboard</a>
+                        class="fas fa-tachometer-alt me-2"></i> Driver Dashboard</a>
                <form action="viewData" method="post" id="formSubmit">
                
                  <a href="#"  class="list-group-item list-group-item-action bg-transparent second-text active" onclick="submitID()">
@@ -30,11 +30,21 @@
 					}
 					</script>
                 
-               
+               <form action="driverLogout" method="post" id="logout">
+                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onclick="logout()"><i
+                        class="fas fa-power-off me-2"></i>Logout</a>
+                        <input type="hidden" name="action" value="driverlogout">
+               </form>
             </div>
         </div>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="javascript/script-dashboard.js"></script>  
+<script src="javascript/script-dashboard.js"></script>
+<script>
+function logout() {
+	document.getElementById("logout").submit();
+	}
+
+</script>  
 </body>
 
 </html>

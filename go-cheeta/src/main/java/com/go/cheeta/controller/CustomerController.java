@@ -148,7 +148,8 @@ public class CustomerController extends HttpServlet {
 		booking.setCostfor_vehicle(costperkm*km);
 		booking.setLocation(request.getParameter("location"));
 		booking.setBaranch(request.getParameter("branch"));
-		
+		booking.setFromlocation(request.getParameter("frombranch"));
+		booking.setFromaddress(request.getParameter("fromad"));
 		try {
 		boolean result=	service.bookVehicle(booking, vehicle, customer, driverClass);
 		if(result) {
@@ -231,5 +232,5 @@ public class CustomerController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
-
+	
 }

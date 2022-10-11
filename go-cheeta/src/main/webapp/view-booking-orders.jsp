@@ -32,6 +32,8 @@
                     <h3 class="fs-4 mb-3"><b>Vehicles</b><br></h3>
                     <label style="font-weight:bold;">Driver Name:<%= session.getAttribute("dname") %></label><br>
                         	     <label style="font-weight:bold;">Vehicle Model:<%= session.getAttribute("vmodel") %></label>
+                        	     <label style="font-weight:bold;"> Contact Number:<%= session.getAttribute("dcontact") %></label>
+                        	     <label style="font-weight:bold;"> Customer Name:<%= session.getAttribute("customer") %></label>
                       <p>${message}</p>
                     <div class="col">
                         <table class=" table bg-white shadow-lg p-3 mb-5 bg-white rounded bg-transparent text-dark table-hover">
@@ -40,8 +42,10 @@
                                     <th scope="col" width="50">ID</th>
                                     <th scope="col"> Start Date</th>
                                     <th scope="col"> End Date</th>
-                                     <th scope="col">Branch</th>
-                                     <th scope="col">Location</th>
+                                    <th scope="col">From Location</th>
+                                     <th scope="col">From Address</th>
+                                     <th scope="col">To Location</th>
+                                     <th scope="col">To Address</th>
                                       <th scope="col" style="width:10%">Km</th>
                                        <th scope="col">Vehicle ID</th>
                                         <th scope="col">Customer ID</th>
@@ -60,6 +64,8 @@
                                   <td>${ order.getBooking_ID()}</td>
                                   <td>${ order.getStart_Date()}</td>
                                   <td>${ order.getEnd_Date() }</td>
+                                  <td>${ order.getFromlocation() }</td>
+                                  <td>${ order.getFromaddress() }</td>
                                  <td>${ order.getBaranch()}</td>
                                   <td>${ order.getLocation()}</td>
                                  <td>${ order.getKillometers()}</td>
@@ -79,12 +85,11 @@
                                  </td>
                                  <td><form action="WebController" Method="post">
                                  <input type="hidden" name="vehicleids" value="${order.getVehicle_ID()}">
+                                 <input type="hidden" name="customerid" value="${order. getCustomerid()}">
                                  <input type="hidden" name="action" value="getdriver">
-                                 <button class="btnedit btn btn-primary">Driver</button>
+                                 <button class="btnedit btn btn-primary">Information</button>
                                  </form>
                                  
-                                 </td>
-                                 <td><button class="btnedit btn btn-primary">Vehicle</button></td>
                                  </tr>
                                  </tag:forEach>
                                 </tbody>

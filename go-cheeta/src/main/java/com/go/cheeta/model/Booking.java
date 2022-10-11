@@ -15,6 +15,9 @@ public class Booking {
 	private int customerid;
 	private double costfor_vehicle;
 	private int confirm;
+	
+	private String fromlocation;
+	private String fromaddress;
 	public Booking() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -93,6 +96,36 @@ public class Booking {
 	public void setConfirm(int confirm) {
 		this.confirm = confirm;
 	}
+	public Booking(int booking_ID, LocalDate start_Date, LocalDate end_Date, String baranch, String location,
+			double killometers, int vehicle_ID, int customerid, double costfor_vehicle, int confirm,
+			String fromlocation, String fromaddress) {
+		super();
+		this.booking_ID = booking_ID;
+		this.start_Date = start_Date;
+		this.end_Date = end_Date;
+		this.baranch = baranch;
+		this.location = location;
+		this.killometers = killometers;
+		this.vehicle_ID = vehicle_ID;
+		this.customerid = customerid;
+		this.costfor_vehicle = costfor_vehicle;
+		this.confirm = confirm;
+		this.fromlocation = fromlocation;
+		this.fromaddress = fromaddress;
+	}
+	public String getFromlocation() {
+		return fromlocation;
+	}
+	public void setFromlocation(String fromlocation) {
+		this.fromlocation = fromlocation;
+	}
+	public String getFromaddress() {
+		return fromaddress;
+	}
+	public void setFromaddress(String fromaddress) {
+		this.fromaddress = fromaddress;
+	}
 
+	
 	
 }

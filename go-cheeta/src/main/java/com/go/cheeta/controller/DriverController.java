@@ -81,7 +81,13 @@ public class DriverController extends HttpServlet {
 				
 			   updateDriver(request, response);
 			}
-		  
+		   else if(action.equals("deleteDriver")) {
+			   deleteDriver(request, response);
+		   }
+		   if(action.equals("driverlogout")) {
+				driverlogout(request, response);
+				
+			}
 		  
 	}
 
@@ -334,5 +340,36 @@ public class DriverController extends HttpServlet {
 	
 	}
 	
-	
+	 private void deleteDriver(HttpServletRequest request, HttpServletResponse response) throws IOException   {
+			String message= "";
+			DriverService service= new DriverService();
+			String driverid= request.getParameter("nic");
+			try {
+				boolean result=service.deleteDriver(driverid);
+				if(result) {
+					
+					message="Driver Deleted";
+					
+				}
+				
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				message=e.getMessage();
+
+			}
+			
+			request.setAttribute("message", message);
+			HttpSession session=request.getSession();
+			session.setAttribute("deleteMessage", message);
+			response.sendRedirect("/go-cheeta/viewData?action=alldrivers");
+			
+		}
+	 
+	 private void driverlogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			HttpSession session=request.getSession();
+			session.invalidate();
+			RequestDispatcher rd=request.getRequestDispatcher("driver-login.jsp");
+			rd.forward(request, response);
+			
+		}
 }

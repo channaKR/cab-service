@@ -126,13 +126,34 @@ public static Account adminLogin(Account login) throws ClassNotFoundException, S
 		ps.setString(3,driver.getAddress() );
 		ps.setString(4, driver.getContactnumber());
 		ps.setString(5, account.getEmail());
-		ps.setInt(6, vehicle.getVehicleID());
+		
 		
 		boolean result = ps.executeUpdate() > 0 ;
 		addLogin(account);
 		ps.close();
 		connection.close();
 		return result;
+	}
+	
+	
+	public static Customer getCustomerbyID(Customer customer) throws ClassNotFoundException, SQLException {
+		DbConnector connector = new DbConnectorSQL();
+		Connection connection = connector.getConnection();
+		String query="SELECT firstname,secondname FROM gocheeta.customer where customerid=?";
+		PreparedStatement ps = connection.prepareStatement(query);
+		ps.setInt(1, customer.getCustomer_ID());
+		ResultSet rs=ps.executeQuery();
+		
+		if(rs.next()) {
+			customer.setCustomername1(rs.getString("firstname"));
+			customer.setCustomername2(rs.getString("secondname"));
+			
+		}
+		ps.close();
+		connection.close();
+		return customer;
+		
+	
 	}
 	
 	

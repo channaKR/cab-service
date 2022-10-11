@@ -18,7 +18,14 @@
 </style>
 </head>
 <body>
+<h1>${message}</h1>
+<%
 
+if((String) session.getAttribute("useremail")==null){
+	
+	response.sendRedirect("admin-login.jsp");
+}
+%>
 
 <div class="d-flex" id="wrapper">
 <jsp:include page="admin-dashboard-side.jsp" />
@@ -67,9 +74,17 @@
                                     
                                     <button type="submit" class="btn btn-primary" >Edit</button>
                                     </form>
-                                    </td>   
-                                    <td><button type="button" class="btn btn-danger">Delete</button></td>
-                                                       
+                                    </td>  
+                                    
+                                    <td>
+                                    <form action="deleteData" method="Post">
+                                     <input type="hidden" name="nic"  value="${ driver.getNicnumber()}">
+                                    <input type="hidden" name="action"  value="deleteDriver" >
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                    </td>
+                                   
+                                                  
                                 </tr>
                         </tag:forEach>
                         </tbody>
